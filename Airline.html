@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline</title>
+    <style>
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+    }
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+        display: block; }
+  body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color:#9ac2ce;
+    }
+
+.container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .image-section {
+            width: 45%;
+            text-align: center;
+            margin-top: 50px;
+            shape-outside: border-box;
+            border: 3px solid #cdeef7;
+        }
+        .image-section img {
+            width: 65%;
+            height: auto;
+            
+        }
+        .text-section {
+            margin-top: 10px;
+            font-family: sans-serif;
+            text-justify: inherit;
+            text-decoration: solid;
+        }
+        .more {display: none;}
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+.my-button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="image-section">
+            <h2>Cargo Systems</h2>
+            <img src="images/cargo.png" alt="Image 1">
+            <div class="text-section">
+                <p>Cargo Systems Upgrade in the airline industry, I was responsible for overseeing the modernization of legacy systems to improve operational efficiency and compliance. My role included conducting detailed business process analysis to identify bottlenecks and areas for improvement, collaborating with key stakeholders such as airline operations, IT, and external vendors to gather and document requirements. I translated these requirements into functional specifications, ensuring that the system upgrade met both business and regulatory needs.
+                I facilitated workshops with cross-functional teams to ensure alignment on project goals, and I supported the development of test plans for user acceptance testing (UAT). I also managed the traceability of requirements, ensuring changes were tracked throughout the project lifecycle. 
+                    <span id="dots1">...</span><span id="more1" class="more">Additionally, I analyzed the impact of the new system on daily operations, provided training and support to end-users, and ensured a smooth transition from the old system to the upgraded platform.
+                        This system upgrade led to a significant improvement in cargo tracking, resource allocation, and overall efficiency, while also aligning with IATA regulations, reducing operational downtime, and enhancing customer satisfaction with more transparent tracking and billing.</span>
+                </p>
+                <button onclick="toggleText('dots1', 'more1', this)" class="my-button" id="btn1">Read More</button>
+            </div>
+        </div>
+
+        <!-- Second Image Section -->
+        <div class="image-section">
+            
+            <h2>Crew Pairing and Rostering Integration</h2>
+            <!-- <img src="images/fintech2.jpg"  width="300" height="300"alt="fintech"> -->
+            <img src="images/pairing.png" alt="Image 2">
+            <div class="text-section">
+                <p>
+                    I played a pivotal role in the successful integration of pairing and rostering systems with the SAFe framework for Crew Ops & Fleet management. My responsibilities included formulating comprehensive business process maps for critical functions, collaborating with stakeholders to ensure the project’s objectives were fully aligned with broader organizational goals. 
+                    <span id="dots2">...</span><span id="more2" class="more">I spearheaded the management of the product backlog, working closely with SMEs and stakeholders to gather, document, and prioritize requirements. This approach allowed us to focus on delivering high-impact features and drove resource efficiency across cross-functional teams, enhancing collaboration and maximizing project value. Additionally, I employed process flow mapping, UX design, and technical documentation to improve software and product development lifecycle processes, ensuring consistency and alignment with strategic objectives.
+
+                        Beyond managing core integration tasks, I conducted network infrastructure audits, focusing on performance optimization and security best practices. I also ensured that user stories and acceptance criteria were clear and aligned with both business needs and technical requirements through behavior-driven development.
+                        
+                        I was heavily involved in implementing change management processes, using tools like Confluence, Atlassian Jira, and Asana to manage project progress. My expertise with core airline systems such as AIMS, Sabre, and Amadeus facilitated effective integration. Furthermore, I worked closely with technical teams to ensure proper traceability of requirements and managed the impact of changes throughout the project lifecycle. My efforts helped deliver a fully integrated solution, optimizing crew operations and fleet management across the airline, while ensuring long-term scalability and adaptability..</span>
+                </p>
+                <button onclick="toggleText('dots2', 'more2', this)"class="my-button" id="btn2">Read More</button>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleText(dotsId, moreId, btn) {
+            var dots = document.getElementById(dotsId);
+            var moreText = document.getElementById(moreId);
+            
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btn.innerHTML = "Read More"; 
+                moreText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btn.innerHTML = "Read Less"; 
+                moreText.style.display = "inline";
+            }
+        }
+    </script>
+</body>
+</html>

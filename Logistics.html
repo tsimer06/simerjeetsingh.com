@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fintech</title>
+    <style>
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+    }
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+        display: block; }
+  body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color:#9ac2ce;
+    }
+
+.container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .image-section {
+            width: 45%;
+            text-align: center;
+            margin-top: 50px;
+            shape-outside: border-box;
+            border: 3px solid #cdeef7;
+        }
+        .image-section img {
+            width: 65%;
+            height: auto;
+            
+        }
+        .text-section {
+            margin-top: 10px;
+            font-family: sans-serif;
+            text-justify: inherit;
+            text-decoration: solid;
+        }
+        .more {display: none;}
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+.my-button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="image-section">
+            <h2>Transport Managemnet System</h2>
+            <img src="images/logisticsmanagement.png" alt="Image 1">
+            <div class="text-section">
+                <p>
+                    I optimized the Logistics Management System (LMS) for a major logistics company facing inefficiencies in shipment tracking, fleet management, and delivery scheduling, which contributed to higher operational costs and customer dissatisfaction.
+                    <span id="dots1">...</span><span id="more1" class="more">I collaborated with logistics coordinators, fleet managers, and IT teams to gather requirements and define business needs for system improvements. Conducting a comprehensive gap analysis, I compared current LMS functionalities with industry best practices, identifying areas for enhancement such as real-time shipment tracking, fleet route optimization, and automated delivery notifications. I worked with the operations team to redesign logistics workflows, including automated route scheduling and better load management, to minimize delivery delays. Engaging stakeholders at all levels ensured alignment on project goals and necessary changes. I also led the User Acceptance Testing (UAT) phase to validate that the enhanced LMS functionalities met all stakeholder requirements. As a result, the project achieved a 20% increase in delivery efficiency, a 12% reduction in fuel costs, and improved fleet utilization, significantly enhancing customer satisfaction and streamlining operations.</span>
+                </p>
+                <button onclick="toggleText('dots1', 'more1', this)" class="my-button" id="btn1">Read More</button>
+            </div>
+        </div>
+
+        <!-- Second Image Section -->
+        <div class="image-section">
+            
+            <h2>End-to-End Supply Chain Integration for Third-Party Logistics Provider</h2>
+            <!-- <img src="images/fintech2.jpg"  width="300" height="300"alt="fintech"> -->
+            <img src="images/logistics.png" alt="Image 2">
+            <div class="text-section">
+                <p>
+                    I led this project involved the integration of an end-to-end supply chain management system for a third-party logistics (3PL) provider.  
+                    <span id="dots2">...</span><span id="more2" class="more">My role involved facilitating workshops with sales, operations, and IT teams to define integration requirements and key performance indicators (KPIs), mapping existing logistics processes to identify inefficiencies, and creating functional and non-functional requirement specifications. I managed external software vendors to ensure seamless system integration and utilized Agile methodology to deliver iterative improvements across multiple sprints. I coordinated system testing, including stress tests, and oversaw the phased rollout of the new platform. As a result, the project achieved a 30% reduction in order processing time, improved on-time deliveries by 20%, and provided clients with real-time shipment tracking visibility.</span>
+                </p>
+                <button onclick="toggleText('dots2', 'more2', this)"class="my-button" id="btn2">Read More</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleText(dotsId, moreId, btn) {
+            var dots = document.getElementById(dotsId);
+            var moreText = document.getElementById(moreId);
+            
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btn.innerHTML = "Read More"; 
+                moreText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btn.innerHTML = "Read Less"; 
+                moreText.style.display = "inline";
+            }
+        }
+    </script>
+</body>
+</html>

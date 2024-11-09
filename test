@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Skills - Business Analyst</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .project {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #e9ecef;
+        }
+        .outcome {
+            color: #28a745;
+        }
+        .skills {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Project Management Skills as a Business Analyst</h1>
+
+        <div class="project">
+            <h2>Project Title: Logistics Management System Optimization</h2>
+            <h3>Role: Business Analyst</h3>
+            <h4>Duration: 8 months</h4>
+            <p><strong>Project Description:</strong> Optimized the existing Logistics Management System for a major logistics company, addressing inefficiencies in shipment tracking and delivery scheduling.</p>
+
+            <h4>Key Responsibilities:</h4>
+            <ul>
+                <li>Conducted requirements gathering with logistics coordinators and IT teams.</li>
+                <li>Performed gap analysis to identify areas for system improvement.</li>
+                <li>Redesigned logistics workflows for better shipment tracking and fleet management.</li>
+                <li>Communicated effectively with stakeholders at all levels.</li>
+                <li>Led User Acceptance Testing (UAT) to ensure functionality met requirements.</li>
+            </ul>
+
+            <h4>Project Outcome:</h4>
+            <p class="outcome">Increased delivery efficiency by 20% and reduced operational costs by 15%.</p>
+
+            <h4>Skills Utilized:</h4>
+            <p class="skills">Agile methodologies, stakeholder management, data analysis, process redesign, UAT leadership.</p>
+        </div>
+
+        <div class="project">
+            <h2>Project Title: Warehouse Management System Improvement</h2>
+            <h3>Role: Business Analyst</h3>
+            <h4>Duration: 6 months</h4>
+            <p><strong>Project Description:</strong> Enhanced the Warehouse Management System to improve inventory tracking and order fulfillment processes.</p>
+
+            <h4>Key Responsibilities:</h4>
+            <ul>
+                <li>Engaged with warehouse staff to identify operational pain points.</li>
+                <li>Conducted gap analysis to compare system capabilities against industry standards.</li>
+                <li>Redesigned inventory management processes for better accuracy.</li>
+                <li>Facilitated training sessions for staff on new system features.</li>
+                <li>Supported UAT and final implementation of system changes.</li>
+            </ul>
+
+            <h4>Project Outcome:</h4>
+            <p class="outcome">Improved order fulfillment speed by 25% and reduced inventory discrepancies by 15%.</p>
+
+            <h4>Skills Utilized:</h4>
+            <p class="skills">Project management, process improvement, communication, training facilitation, analytical skills.</p>
+        </div>
+    </div>
+</body>
+</html>

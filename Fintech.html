@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fintech</title>
+    <style>
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+    }
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+        display: block; }
+  body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #7d52c4; }
+    
+
+.container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .image-section {
+            width: 45%;
+            text-align: center;
+            margin-top: 50px;
+            shape-outside: border-box;
+            border: 3px solid #cdeef7;
+          
+        }
+        .image-section img {
+            width: 65%;
+            height: auto;
+            
+        }
+        .text-section {
+            margin-top: 10px;
+            font-family: sans-serif;
+            text-justify: inherit;
+            text-decoration: solid;
+        }
+        .more {display: none;}
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+.my-button {
+    background-color:#ffbd39;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+   
+  }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="image-section">
+            <h2>Digital Banking Platform Enhancement</h2>
+            <img src="images/fintech2.jpg" alt="Image 1">
+            <div class="text-section">
+                <p>
+                    banking application enhancement project, I played a pivotal role in improving the platform’s functionality, ensuring compliance with regulatory
+                    <span id="dots1">...</span><span id="more1" class="more">requirements and enhancing the user experience.My key responsibilities included collaborating with stakeholders to gather, document, and prioritize business requirements, ensuring alignment with both industry standards and banking regulations.I utilized process analysis methodologies such as UML and BPMN to identify gaps in the current system and propose improvements. This involved working closely with cross-functional teams, including IT, compliance, and risk management, to ensure that the technical solutions not only addressed the business needs but also met stringent compliance and regulatory guidelines.I facilitated workshops and interviews with stakeholders, translating their inputs into clear technical specifications and functional documentation. I was also actively involved in the User Acceptance Testing (UAT) phase, ensuring that all changes were thoroughly tested, validated, and met the defined business objectives.My contributions helped streamline the banking processes, improve operational efficiency, and ensure the platform remained compliant with evolving regulations. The project resulted in an enhanced user experience, reduced operational risks, and adherence to regulatory mandates, contributing to the overall success and sustainability of the banking application</span>
+                </p>
+                <button onclick="toggleText('dots1', 'more1', this)" class="my-button" id="btn1">Read More</button>
+            </div>
+        </div>
+
+        <!-- Second Image Section -->
+        <div class="image-section">
+            
+            <h2>Payments Gateway Implementation for E-commerce</h2>
+            <!-- <img src="images/fintech2.jpg"  width="300" height="300"alt="fintech"> -->
+            <img src="images/Gateways-1.png" alt="Image 2">
+            <div class="text-section">
+                <p>
+                    I led the Payments Gateway Implementation for an e-commerce platform, I was responsible for managing the end-to-end integration of payment solutions. 
+                    <span id="dots2">...</span><span id="more2" class="more">My role involved gathering and documenting business requirements to ensure smooth integration of multi-currency payment options, fraud detection mechanisms, and compliance with PCI-DSS standards.I facilitated cross-functional workshops, collaborating with stakeholders from IT, finance, and third-party payment providers such as PayPal and Stripe. I developed use cases, functional specifications, and oversaw user acceptance testing (UAT) to validate the integration's functionality. Additionally, I monitored key performance metrics post-implementation, which resulted in a 15% increase in transaction success rates and a 25% reduction in payment fraud incidents, significantly enhancing the platform's operational efficiency and security.</span>
+                </p>
+                <button onclick="toggleText('dots2', 'more2', this)"class="my-button" id="btn2">Read More</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleText(dotsId, moreId, btn) {
+            var dots = document.getElementById(dotsId);
+            var moreText = document.getElementById(moreId);
+            
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btn.innerHTML = "Read More"; 
+                moreText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btn.innerHTML = "Read Less"; 
+                moreText.style.display = "inline";
+            }
+        }
+    </script>
+</body>
+</html>
