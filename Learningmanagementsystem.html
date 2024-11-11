@@ -19,17 +19,14 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   font-weight: 400;
   line-height: 1.5;
   background-color:#008080;
- 
   
     }
 
 .container {
             display: flex;
             justify-content: center;
+            width: 100vw;  /* Set width to cover the entire viewport */
             margin-top: 20px;
-            
-            width: auto;
-            
         }
         .image-section {
             width: 45%;
@@ -41,7 +38,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
             border-radius: 25px;
         }
         .image-section img {
-            width: 80%;
+            width: 100%;
             height: auto;
             border: 1px solid #ddd;
             border-radius: 25px;
@@ -73,21 +70,23 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
     <div class="container">
         
         <div class="image-section">
-            <h2><b>Insurance Claim Project</b></h2>
-            <img src="images/insurance-vector.png" width="150" height="150" alt="Image 1">
+            <h2><b>Learning Management System</b></h2>
+            <img src="images/LMS.png" width="150" height="150" alt="Image 1">
             <div class="text-section">
                 <p>
-                    <b>Insurance Claim Project</b><br><b>Requirements Gathering and Documentation</b><br>I led the initial stages by gathering and documenting detailed business requirements from stakeholders to ensure a clear understanding of project goals. This process involved aligning the claims application with specific business objectives, focusing on accuracy and efficiency.<br>
-                    <span id="dots1">...</span><span id="more1" class="more"><b>Gap Analysis</b><br>I Conducted a thorough gap analysis to identify inefficiencies within the existing claims process. This analysis informed targeted improvements to streamline workflows, reduce manual intervention, and enhance alignment with business objectives.<br>
-                        <b>Collaboration with Development and Testing Teams</b><br>Worked closely with developers and testers to integrate policy, claims, and customer data seamlessly. Ensured that each element was well-coordinated to provide a holistic, user-friendly solution that improved the claims process.<br>
-                        <b>Stakeholder Workshops</b><br>Facilitated regular workshops with key stakeholders to maintain alignment, gather feedback, and make adjustments as needed. This collaborative approach helped address concerns early and ensured stakeholder engagement throughout the project lifecycle.<br>
-                        <b>Product Backlog Management</b><br>Managed the product backlog to prioritize features and updates, keeping the team focused on delivering high-impact solutions. Organized and refined backlog items to enhance clarity and support timely delivery of features.<br>
-                        <b>User Acceptance Testing (UAT)</b><br>Coordinated User Acceptance Testing to validate that the application met user expectations and functional requirements. Addressed feedback to make final adjustments before deployment, ensuring high user satisfaction.<br>
-                        <b>Project Outcomes</b><br>Successfully improved operational efficiency, reduced claims processing times, and enhanced customer experience. Automation and streamlined workflows enabled a faster, more reliable claims process that better met user and business needs.<br>
-
-                    </span>
+                    <b>Gap Analysis</b><br>
+                    Conducted a detailed gap analysis to identify specific areas in the LMS that required improvement. This analysis highlighted functional discrepancies and alignment gaps, guiding targeted enhancements that closely aligned with both business objectives and user needs.<br>
+                    <b>Target Operating Model (TOM)</b><br>
+                    <span id="dots1">...</span><span id="more1" class="more">Developed a comprehensive Target Operating Model (TOM) to streamline workflows within the LMS, defining optimized processes to enhance efficiency and reduce redundancies. This TOM provided a strategic framework to guide system enhancements and ensure they supported broader organizational goals.<br>
+                    <b> Unified Modeling Language (UML) Diagrams</b><br>
+                    Created UML diagrams to visualize and document complex workflows within the LMS. These diagrams clarified process structures, enabling a clear understanding of current and future states, which facilitated seamless collaboration with both technical and non-technical teams.<br>
+                    <b>Collaboration with UX/UI Team</b><br>
+                    Worked closely with the UX/UI team to incorporate user-centered design principles into the LMS, improving overall usability and engagement. This collaboration focused on aligning system changes with user expectations, resulting in a more intuitive and satisfying experience for learners.<br>
+                    <b>User Acceptance Testing (UAT)</b><br>
+                    Led User Acceptance Testing (UAT) sessions to validate system improvements before full deployment. These tests ensured that new features met user expectations and worked as intended, paving the way for a successful, user-approved LMS launch.
+                </span>
                 </p>
-                <button onclick="toggleText('dots1', 'more1', this)" class="my-button" id="btn1">Read More</button>
+                 <button onclick="toggleText('dots1', 'more1', this)" class="my-button" id="btn1">Read More</button>
             </div>
         </div>
 
