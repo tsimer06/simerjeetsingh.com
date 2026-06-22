@@ -1,127 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airline</title>
-    <style>
-html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-    }
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-        display: block; }
-  body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  background-color:#008080;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airline Projects — Simerjeet Singh</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #0f766e;
+      --teal-light: #ccfbf1;
+      --teal-dark: #064e3b;
+      --ink: #111827;
+      --ink-mid: #374151;
+      --ink-soft: #6b7280;
+      --surface: #f9fafb;
+      --white: #ffffff;
+      --border: #e5e7eb;
     }
 
-.container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-            
-        }
-        .image-section {
-            width: 45%;
-            text-align: center;
-            margin-top: 50px;
-            shape-outside: border-box;
-            border: 3px solid #cdeef7;
-            border: 1px solid #ddd;
-            border-radius: 25px;
-        }
-        .image-section img {
-            width: 65%;
-            height: auto;
-            
-        }
-        .text-section {
-            margin-top: 10px;
-            font-family: sans-serif;
-            text-justify: inherit;
-            text-decoration: solid;
-        }
-        .more {display: none;}
-        button {
-            margin-top: 10px;
-            padding: 5px 10px;
-        }
-.my-button {
-    background-color: blue;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+    html { scroll-behavior: smooth; }
 
-    </style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-back {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      display: flex; align-items: center; gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--teal); }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: var(--ink);
+      padding: 8rem 2rem 5rem;
+      text-align: center;
+    }
+    .page-hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #5eead4;
+      margin-bottom: 1rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+    }
+    .page-hero-eyebrow::before,
+    .page-hero-eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 28px; height: 1px;
+      background: #5eead4;
+    }
+    .page-hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      color: white;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .page-hero-title em { font-style: italic; color: #5eead4; }
+    .page-hero-desc {
+      font-size: 1rem;
+      color: #9ca3af;
+      max-width: 580px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+    .page-hero-tags {
+      display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap;
+    }
+    .tag {
+      background: #1f2937;
+      color: #9ca3af;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid #374151;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+
+    /* PROJECT CARDS */
+    .project-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-block:last-child { border-bottom: none; }
+    .project-block.reverse { direction: rtl; }
+    .project-block.reverse > * { direction: ltr; }
+
+    .project-image-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 260px;
+      padding: 2rem;
+    }
+    .project-image-wrap img {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+    .project-image-placeholder {
+      font-size: 4rem;
+      opacity: 0.3;
+    }
+
+    .project-content { }
+    .project-number {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.85rem;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      color: var(--ink);
+    }
+
+    /* Accordion sections */
+    .accordion { display: flex; flex-direction: column; gap: 0; }
+    .accordion-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .accordion-item:first-child { border-top: 1px solid var(--border); }
+    .accordion-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0.9rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-align: left;
+      transition: color 0.2s;
+    }
+    .accordion-btn:hover { color: var(--teal); }
+    .accordion-chevron {
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .accordion-btn.open .accordion-chevron { transform: rotate(180deg); }
+    .accordion-body {
+      display: none;
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      padding-bottom: 1rem;
+    }
+    .accordion-body.open { display: block; }
+
+    /* Impact badge strip */
+    .impact-strip {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .impact-badge {
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+    }
+
+    /* BACK FOOTER */
+    .back-strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .back-strip a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--teal);
+      text-decoration: none;
+      border-bottom: 1px solid var(--teal-light);
+      padding-bottom: 2px;
+    }
+    .back-strip a:hover { border-color: var(--teal); }
+
+    footer {
+      background: #0a0a0a;
+      color: #4b5563;
+      text-align: center;
+      padding: 1.75rem;
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 768px) {
+      .project-block,
+      .project-block.reverse { grid-template-columns: 1fr; direction: ltr; }
+      .page-hero { padding: 7rem 1.5rem 4rem; }
+      main { padding: 3rem 1.25rem 4rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <div class="image-section">
-            <h2><b>Cargo Systems</b></h2>
-            <img src="images/cargo.png" alt="Image 1">
-            <div class="text-section">
-                <p><b>Business Process Analysis and Requirements Gathering</b> <br> I conducted an in-depth business process analysis, uncovering bottlenecks and efficiency gaps. I collaborated with stakeholders from airline operations, IT, and external vendors to gather and document requirements. These insights were translated into detailed functional specifications to ensure the upgraded system would meet both business objectives and regulatory standards.<br>
-                     
-                    <span id="dots1">...</span><span id="more1" class="more"><b>Stakeholder Collaboration and Workshops</b><br>Facilitating workshops with cross-functional teams, I ensured all stakeholders were aligned on project goals and expectations. This collaboration was essential to maintaining focus on the project's objectives and to encourage a shared vision across departments.<br>
-                        <b>UAT and Requirements Traceability</b><br>I played a central role in supporting the development of test plans for User Acceptance Testing (UAT), making certain that the upgraded system met user and compliance needs. Additionally, I managed requirements traceability throughout the project lifecycle, meticulously tracking changes and ensuring accountability.<br>
-                        <b>Transition Management and Impact Analysis</b><br>To ensure a seamless transition, I analyzed the impact of the new system on daily operations and developed training materials for end-users, providing hands-on support as they adapted to the upgraded platform.<br>
-                        <b>Results and Impact</b><br>The system upgrade significantly improved cargo tracking, resource allocation, and operational efficiency. It met IATA regulatory standards, reduced operational downtime, and elevated customer satisfaction by providing transparent tracking and billing capabilities.
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Simerjeet Singh</a>
+  <a href="index.html#projects" class="nav-back">← Back to Portfolio</a>
+</nav>
 
-                    
-                    </span>
-                </p>
-                <button onclick="toggleText('dots1', 'more1', this)" class="my-button" id="btn1">Read More</button>
-            </div>
-        </div>
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="page-hero-eyebrow">Domain · Airline</p>
+  <h1 class="page-hero-title">Aviation <em>Operations</em><br>& Systems Integration</h1>
+  <p class="page-hero-desc">End-to-end business analysis across cargo management and crew operations — delivering scalable, regulatory-compliant systems for a major airline.</p>
+  <div class="page-hero-tags">
+    <span class="tag">Business Process Analysis</span>
+    <span class="tag">Requirements Engineering</span>
+    <span class="tag">UAT Management</span>
+    <span class="tag">Stakeholder Engagement</span>
+    <span class="tag">IATA Compliance</span>
+    <span class="tag">RACI & Risk Register</span>
+  </div>
+</div>
 
-        <!-- Second Image Section -->
-        <div class="image-section">
-            
-            <h2><b>Crew Pairing and Rostering Integration</b></h2>
-            <!-- <img src="images/fintech2.jpg"  width="300" height="300"alt="fintech"> -->
-            <img src="images/pairing.png" alt="Image 2">
-            <div class="text-section">
-                <p>
-                    <b>Business Process Analysis and Requirements Gathering</b><br>I conducted a comprehensive business process analysis to identify key areas for improvement in crew operations and fleet management. By collaborating with stakeholders and subject matter experts (SMEs), I gathered, documented, and prioritized requirements to ensure the new system addressed both operational challenges and long-term organizational goals.These insights were captured in detailed functional specifications that guided the integration process. To clarify responsibilities, I created RACI charts, designating roles as Responsible, Accountable, Consulted, and Informed for each key task. This framework enhanced transparency and ensured each team member understood their role. I also maintained a risk register to proactively track potential issues, assigning risk owners and documenting mitigation strategies to manage risks effectively throughout the project.<br>
-                    <span id="dots2">...</span><span id="more2" class="more"><b>Stakeholder Collaboration and Workshops</b><br>To ensure alignment across cross-functional teams, I facilitated workshops with stakeholders from Crew Ops, Fleet Management, and IT departments. These workshops fostered a shared understanding of project objectives and strengthened collaboration, helping prioritize high-impact features to maximize project value. During these sessions, we reviewed and updated the RACI charts, ensuring clarity in role assignments and responsibilities. I also leveraged a risk register to capture and assess risks identified in our discussions, which allowed for proactive risk mitigation and increased accountability across teams.<br>
-                        <b>Product Backlog Management and Change Management</b><br>I played a central role in managing the product backlog, ensuring that user stories and acceptance criteria were clear and aligned with both business needs and technical requirements. My approach utilized behavior-driven development, helping to prioritize features that optimized resource efficiency. Additionally, I led the implementation of change management processes using tools such as Confluence, Jira, and Asana to track project progress and ensure smooth transitions.<br>
-                        <b>UAT and Requirements Traceability</b><br>I supported the development of User Acceptance Testing (UAT) plans to validate that the integrated solution met both business and technical requirements. I ensured proper requirements traceability throughout the project lifecycle, maintaining accountability and visibility into changes, and ensuring all requirements were fully addressed.<br>
-                        <b>Network Infrastructure Audits and Performance Optimization</b><br> conducted network infrastructure audits to optimize system performance and ensure adherence to security best practices. These audits helped ensure that the integrated systems were scalable and secure for long-term use.<br>
-                        <b>Results and Impact</b><br>The integration of the pairing and rostering systems resulted in significant improvements in crew operations and fleet management. The project delivered a fully integrated solution that enhanced collaboration across teams, optimized resource allocation, and improved operational efficiency. The outcome was a scalable and adaptable system that supported the airline's long-term strategic objectives.
-                    </span>
-                </p>
-                <button onclick="toggleText('dots2', 'more2', this)"class="my-button" id="btn2">Read More</button>
-                
-            </div>
-        </div>
+<!-- MAIN -->
+<main>
+
+  <!-- PROJECT 1: Cargo Systems -->
+  <div class="project-block">
+    <div class="project-image-wrap">
+      <img src="images/cargo.png" alt="Cargo Systems" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <div class="project-image-placeholder" style="display:none">✈️</div>
     </div>
+    <div class="project-content">
+      <p class="project-number">Project 01 · Cargo</p>
+      <h2 class="project-title">Cargo Systems Upgrade</h2>
 
-    <script>
-        function toggleText(dotsId, moreId, btn) {
-            var dots = document.getElementById(dotsId);
-            var moreText = document.getElementById(moreId);
-            
-            if (dots.style.display === "none") {
-                dots.style.display = "inline";
-                btn.innerHTML = "Read More"; 
-                moreText.style.display = "none";
-            } else {
-                dots.style.display = "none";
-                btn.innerHTML = "Read Less"; 
-                moreText.style.display = "inline";
-            }
-        }
-    </script>
+      <div class="accordion">
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Business Process Analysis & Requirements
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Conducted an in-depth business process analysis, uncovering bottlenecks and efficiency gaps across cargo operations. Collaborated with stakeholders from airline operations, IT, and external vendors to gather and document requirements, translating insights into detailed functional specifications to ensure the upgraded system would meet both business objectives and regulatory standards.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Stakeholder Collaboration & Workshops
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Facilitated workshops with cross-functional teams to ensure all stakeholders were aligned on project goals and expectations. This collaboration was essential to maintaining focus on the project's objectives and to encourage a shared vision across departments.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            UAT & Requirements Traceability
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Played a central role in supporting the development of test plans for User Acceptance Testing (UAT), ensuring the upgraded system met user and compliance needs. Managed requirements traceability throughout the project lifecycle, meticulously tracking changes and ensuring accountability at every stage.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Transition Management & Impact Analysis
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Analysed the operational impact of the new system and developed targeted training materials for end-users, providing hands-on support as teams adapted to the upgraded platform. Change impact assessments ensured a seamless go-live.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="impact-strip">
+        <span class="impact-badge">IATA compliant</span>
+        <span class="impact-badge">Reduced operational downtime</span>
+        <span class="impact-badge">Improved cargo tracking</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2: Crew Pairing -->
+  <div class="project-block reverse">
+    <div class="project-image-wrap">
+      <img src="images/pairing.png" alt="Crew Pairing and Rostering" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <div class="project-image-placeholder" style="display:none">🧭</div>
+    </div>
+    <div class="project-content">
+      <p class="project-number">Project 02 · Crew Operations</p>
+      <h2 class="project-title">Crew Pairing & Rostering Integration</h2>
+
+      <div class="accordion">
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Business Process Analysis & Requirements
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Conducted a comprehensive business process analysis to identify key improvement areas in crew operations and fleet management. Collaborated with stakeholders and SMEs to gather, document, and prioritise requirements captured in detailed functional specifications. Created RACI charts to clarify team responsibilities and maintained a risk register to proactively track and mitigate potential issues throughout the project.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Stakeholder Collaboration & Workshops
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Facilitated cross-functional workshops with Crew Ops, Fleet Management, and IT departments to foster a shared understanding of project objectives. Sessions were used to review and update RACI charts, capture risks in the risk register, and prioritise high-impact features to maximise project value.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Backlog Management & Change Management
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Managed the product backlog using behaviour-driven development to ensure user stories and acceptance criteria were clear and aligned with business and technical requirements. Led change management processes using Confluence, Jira, and Asana to track progress and ensure smooth transitions between project phases.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            UAT & Infrastructure Audits
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Supported UAT plan development to validate that the integrated solution met business and technical requirements. Conducted network infrastructure audits to optimise system performance and ensure adherence to security best practices — confirming the integrated systems were scalable and secure for long-term use.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="impact-strip">
+        <span class="impact-badge">Crew efficiency optimised</span>
+        <span class="impact-badge">Scalable integration</span>
+        <span class="impact-badge">Cross-team collaboration</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<div class="back-strip">
+  <a href="index.html#projects">← View all projects</a>
+</div>
+
+<footer>
+  <p>© <script>document.write(new Date().getFullYear())</script> Simerjeet Singh · London, UK</p>
+</footer>
+
+<script>
+  function toggleAccordion(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    btn.classList.toggle('open', !isOpen);
+    body.classList.toggle('open', !isOpen);
+  }
+</script>
+
 </body>
 </html>

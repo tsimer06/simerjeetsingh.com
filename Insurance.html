@@ -1,127 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fintech</title>
-    <style>
-html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-    }
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-        display: block; }
-  body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  background-color:#008080;
- 
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insurance — Simerjeet Singh</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #0f766e;
+      --teal-light: #ccfbf1;
+      --teal-dark: #064e3b;
+      --ink: #111827;
+      --ink-mid: #374151;
+      --ink-soft: #6b7280;
+      --surface: #f9fafb;
+      --white: #ffffff;
+      --border: #e5e7eb;
     }
 
-.container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            
-            width: auto;
-            
-        }
-        .image-section {
-            width: 45%;
-            text-align: center;
-            margin-top: 50px;
-            shape-outside: border-box;
-            border: 3px solid #cdeef7;
-            border: 1px solid #ddd;
-            border-radius: 25px;
-        }
-        .image-section img {
-            width: 80%;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 25px;
-        }
-        .text-section {
-            margin-top: 10px;
-            font-family: sans-serif;
-            text-justify: inherit;
-            text-decoration: solid;
-        }
-        .more {display: none;}
-        button {
-            margin-top: 10px;
-            padding: 5px 10px;
-        }
-.my-button {
-    background-color: blue;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+    html { scroll-behavior: smooth; }
 
-    </style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-back {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--teal); }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: var(--ink);
+      padding: 8rem 2rem 5rem;
+      text-align: center;
+    }
+    .page-hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #5eead4;
+      margin-bottom: 1rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+    }
+    .page-hero-eyebrow::before,
+    .page-hero-eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 28px; height: 1px;
+      background: #5eead4;
+    }
+    .page-hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      color: white;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .page-hero-title em { font-style: italic; color: #5eead4; }
+    .page-hero-desc {
+      font-size: 1rem;
+      color: #9ca3af;
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+    .page-hero-tags {
+      display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap;
+    }
+    .tag {
+      background: #1f2937;
+      color: #9ca3af;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid #374151;
+    }
+
+    /* MAIN */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+
+    /* SINGLE PROJECT — centred wide layout */
+    .project-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .project-number {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    /* IMAGE — centred, generous */
+    .project-image-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+      margin-bottom: 3.5rem;
+    }
+    .project-image-wrap img {
+      max-width: 260px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    .project-image-placeholder {
+      font-size: 5rem;
+      opacity: 0.2;
+    }
+
+    /* PROCESS STEPS — numbered timeline */
+    .process-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 3rem;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1.25rem;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .step:first-child { border-top: 1px solid var(--border); }
+    .step-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .step-body {
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      line-height: 1.75;
+    }
+
+    /* OUTCOMES GRID */
+    .outcomes-section {
+      background: var(--ink);
+      border-radius: 14px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .outcomes-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #5eead4;
+      margin-bottom: 1.5rem;
+    }
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .outcome-item { }
+    .outcome-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+    .outcome-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #e5e7eb;
+      margin-bottom: 0.3rem;
+    }
+    .outcome-desc {
+      font-size: 0.8rem;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    /* IMPACT BADGES */
+    .impact-strip {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .impact-badge {
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 16px;
+      border-radius: 20px;
+    }
+
+    /* BACK STRIP */
+    .back-strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .back-strip a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--teal);
+      text-decoration: none;
+      border-bottom: 1px solid var(--teal-light);
+      padding-bottom: 2px;
+    }
+    .back-strip a:hover { border-color: var(--teal); }
+
+    footer {
+      background: #0a0a0a;
+      color: #4b5563;
+      text-align: center;
+      padding: 1.75rem;
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 640px) {
+      .outcomes-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .page-hero { padding: 7rem 1.5rem 4rem; }
+      main { padding: 3rem 1.25rem 4rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <div class="image-section">
-            <h2><b>Insurance Claim Project</b></h2>
-            <img src="images/insurance-vector.png" width="150" height="150" alt="Image 1">
-            <div class="text-section">
-                <p>
-                    <b>Insurance Claim Project</b><br><b>Requirements Gathering and Documentation</b><br>I led the initial stages by gathering and documenting detailed business requirements from stakeholders to ensure a clear understanding of project goals. This process involved aligning the claims application with specific business objectives, focusing on accuracy and efficiency.<br>
-                    <span id="dots1">...</span><span id="more1" class="more"><b>Gap Analysis</b><br>I Conducted a thorough gap analysis to identify inefficiencies within the existing claims process. This analysis informed targeted improvements to streamline workflows, reduce manual intervention, and enhance alignment with business objectives.<br>
-                        <b>Collaboration with Development and Testing Teams</b><br>Worked closely with developers and testers to integrate policy, claims, and customer data seamlessly. Ensured that each element was well-coordinated to provide a holistic, user-friendly solution that improved the claims process.<br>
-                        <b>Stakeholder Workshops</b><br>Facilitated regular workshops with key stakeholders to maintain alignment, gather feedback, and make adjustments as needed. This collaborative approach helped address concerns early and ensured stakeholder engagement throughout the project lifecycle.<br>
-                        <b>Product Backlog Management</b><br>Managed the product backlog to prioritize features and updates, keeping the team focused on delivering high-impact solutions. Organized and refined backlog items to enhance clarity and support timely delivery of features.<br>
-                        <b>User Acceptance Testing (UAT)</b><br>Coordinated User Acceptance Testing to validate that the application met user expectations and functional requirements. Addressed feedback to make final adjustments before deployment, ensuring high user satisfaction.<br>
-                        <b>Project Outcomes</b><br>Successfully improved operational efficiency, reduced claims processing times, and enhanced customer experience. Automation and streamlined workflows enabled a faster, more reliable claims process that better met user and business needs.<br>
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Simerjeet Singh</a>
+  <a href="index.html#projects" class="nav-back">← Back to Portfolio</a>
+</nav>
 
-                    </span>
-                </p>
-                <button onclick="toggleText('dots1', 'more1', this)" class="my-button" id="btn1">Read More</button>
-            </div>
-        </div>
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="page-hero-eyebrow">Domain · Insurance</p>
+  <h1 class="page-hero-title">Streamlining <em>Claims</em><br>Management</h1>
+  <p class="page-hero-desc">Redesigning the end-to-end insurance claims process through automation, targeted gap analysis, and cross-functional collaboration — delivering faster, more accurate outcomes for both customers and the business.</p>
+  <div class="page-hero-tags">
+    <span class="tag">Requirements Gathering</span>
+    <span class="tag">Gap Analysis</span>
+    <span class="tag">Product Backlog Management</span>
+    <span class="tag">UAT Coordination</span>
+    <span class="tag">Stakeholder Workshops</span>
+    <span class="tag">Process Automation</span>
+    <span class="tag">Agile Delivery</span>
+  </div>
+</div>
 
-        <!-- Second Image Section -->
-        <!-- <div class="image-section">
-            
-            <h2>Insurance Claim Project </h2>
-            <img src="images/fintech2.jpg"  width="300" height="300"alt="fintech">
-            <img src="images/logistics.png" alt="Image 2">
-            <div class="text-section">
-                <p>
-                    I led this project involved the integration of an end-to-end supply chain management system for a third-party logistics (3PL) provider.  
-                    <span id="dots2">...</span><span id="more2" class="more">My role involved facilitating workshops with sales, operations, and IT teams to define integration requirements and key performance indicators (KPIs), mapping existing logistics processes to identify inefficiencies, and creating functional and non-functional requirement specifications. I managed external software vendors to ensure seamless system integration and utilized Agile methodology to deliver iterative improvements across multiple sprints. I coordinated system testing, including stress tests, and oversaw the phased rollout of the new platform. As a result, the project achieved a 30% reduction in order processing time, improved on-time deliveries by 20%, and provided clients with real-time shipment tracking visibility.</span>
-                </p>
-                <button onclick="toggleText('dots2', 'more2', this)"class="my-button" id="btn2">Read More</button>
-            </div>
-        </div> -->
+<!-- MAIN -->
+<main>
+
+  <div class="project-header">
+    <p class="project-number">Insurance · Claims Application</p>
+    <h2 class="project-title">Insurance Claim Project</h2>
+  </div>
+
+  <div class="project-image-wrap">
+    <img src="images/insurance-vector.png" alt="Insurance Claims" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+    <div class="project-image-placeholder" style="display:none">🛡️</div>
+  </div>
+
+  <!-- PROCESS STEPS -->
+  <div class="process-steps">
+
+    <div class="step">
+      <div class="step-num">01</div>
+      <div>
+        <div class="step-title">Requirements gathering & documentation</div>
+        <div class="step-body">Led the initial stages by gathering and documenting detailed business requirements from stakeholders to ensure a clear understanding of project goals. This process focused on aligning the claims application with specific business objectives, prioritising accuracy and operational efficiency throughout.</div>
+      </div>
     </div>
 
-    <script>
-        function toggleText(dotsId, moreId, btn) {
-            var dots = document.getElementById(dotsId);
-            var moreText = document.getElementById(moreId);
-            
-            if (dots.style.display === "none") {
-                dots.style.display = "inline";
-                btn.innerHTML = "Read More"; 
-                moreText.style.display = "none";
-            } else {
-                dots.style.display = "none";
-                btn.innerHTML = "Read Less"; 
-                moreText.style.display = "inline";
-            }
-        }
-    </script>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div>
+        <div class="step-title">Gap analysis</div>
+        <div class="step-body">Conducted a thorough gap analysis to identify inefficiencies within the existing claims process. The findings informed targeted improvements to streamline workflows, reduce manual intervention, and enhance alignment between the operational process and business objectives.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">03</div>
+      <div>
+        <div class="step-title">Collaboration with development & testing teams</div>
+        <div class="step-body">Worked closely with developers and testers to integrate policy, claims, and customer data seamlessly. Ensured each component was well-coordinated to deliver a holistic, user-friendly solution that meaningfully improved the claims process end to end.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">04</div>
+      <div>
+        <div class="step-title">Stakeholder workshops</div>
+        <div class="step-body">Facilitated regular workshops with key stakeholders to maintain alignment, gather feedback, and make timely adjustments. This collaborative approach surfaced concerns early and sustained stakeholder engagement throughout the full project lifecycle.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">05</div>
+      <div>
+        <div class="step-title">Product backlog management</div>
+        <div class="step-body">Managed and refined the product backlog to prioritise high-impact features and updates, keeping the delivery team focused on the most valuable work. Clear backlog organisation supported timely feature delivery and reduced ambiguity across sprints.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">06</div>
+      <div>
+        <div class="step-title">User acceptance testing (UAT)</div>
+        <div class="step-body">Coordinated User Acceptance Testing to validate that the application met user expectations and functional requirements. Gathered and addressed feedback to make final adjustments before deployment, ensuring high user satisfaction and a smooth go-live.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- OUTCOMES -->
+  <div class="outcomes-section">
+    <div class="outcomes-label">Project outcomes</div>
+    <div class="outcomes-grid">
+      <div class="outcome-item">
+        <div class="outcome-icon">⚡</div>
+        <div class="outcome-title">Faster processing</div>
+        <div class="outcome-desc">Reduced claims processing times through automation and streamlined workflows.</div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-icon">📈</div>
+        <div class="outcome-title">Operational efficiency</div>
+        <div class="outcome-desc">Improved overall operational efficiency by reducing manual intervention across the claims lifecycle.</div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-icon">😊</div>
+        <div class="outcome-title">Customer experience</div>
+        <div class="outcome-desc">Enhanced customer satisfaction through a faster, more reliable and transparent claims process.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BADGES -->
+  <div class="impact-strip">
+    <span class="impact-badge">Reduced processing times</span>
+    <span class="impact-badge">Improved operational efficiency</span>
+    <span class="impact-badge">Enhanced customer experience</span>
+    <span class="impact-badge">Agile delivery</span>
+  </div>
+
+</main>
+
+<div class="back-strip">
+  <a href="index.html#projects">← View all projects</a>
+</div>
+
+<footer>
+  <p>© <script>document.write(new Date().getFullYear())</script> Simerjeet Singh · London, UK</p>
+</footer>
+
 </body>
 </html>

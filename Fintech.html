@@ -1,127 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fintech</title>
-    <style>
-html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fintech Projects — Simerjeet Singh</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #0f766e;
+      --teal-light: #ccfbf1;
+      --teal-dark: #064e3b;
+      --ink: #111827;
+      --ink-mid: #374151;
+      --ink-soft: #6b7280;
+      --surface: #f9fafb;
+      --white: #ffffff;
+      --border: #e5e7eb;
     }
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-        display: block; }
-  body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  background-color: #008080; }
-    
 
-.container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        .image-section {
-            width: 45%;
-            text-align: center;
-            margin-top: 50px;
-            shape-outside: border-box;
-            border: 3px solid #cdeef7;
-          
-        }
-        .image-section img {
-            width: 85%;
-            height: auto;
-            
-        }
-        .text-section {
-            margin-top: 10px;
-            font-family: sans-serif;
-            text-justify: inherit;
-            text-decoration: solid;
-        }
-        .more {display: none;}
-        button {
-            margin-top: 10px;
-            padding: 5px 10px;
-        }
-.my-button {
-    background-color:blue;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-   
-  }
+    html { scroll-behavior: smooth; }
 
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
+    }
 
-    </style>
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-back {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      display: flex; align-items: center; gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--teal); }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: var(--ink);
+      padding: 8rem 2rem 5rem;
+      text-align: center;
+    }
+    .page-hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #5eead4;
+      margin-bottom: 1rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+    }
+    .page-hero-eyebrow::before,
+    .page-hero-eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 28px; height: 1px;
+      background: #5eead4;
+    }
+    .page-hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      color: white;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .page-hero-title em { font-style: italic; color: #5eead4; }
+    .page-hero-desc {
+      font-size: 1rem;
+      color: #9ca3af;
+      max-width: 580px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+    .page-hero-tags {
+      display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap;
+    }
+    .tag {
+      background: #1f2937;
+      color: #9ca3af;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid #374151;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+
+    /* PROJECT BLOCKS */
+    .project-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-block:last-child { border-bottom: none; }
+    .project-block.reverse { direction: rtl; }
+    .project-block.reverse > * { direction: ltr; }
+
+    .project-image-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 260px;
+      padding: 2rem;
+    }
+    .project-image-wrap img {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+    .project-image-placeholder {
+      font-size: 4rem;
+      opacity: 0.3;
+    }
+
+    .project-number {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.85rem;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      color: var(--ink);
+    }
+
+    /* ACCORDION */
+    .accordion { display: flex; flex-direction: column; gap: 0; }
+    .accordion-item { border-bottom: 1px solid var(--border); }
+    .accordion-item:first-child { border-top: 1px solid var(--border); }
+    .accordion-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0.9rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-align: left;
+      transition: color 0.2s;
+    }
+    .accordion-btn:hover { color: var(--teal); }
+    .accordion-chevron {
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .accordion-btn.open .accordion-chevron { transform: rotate(180deg); }
+    .accordion-body {
+      display: none;
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      padding-bottom: 1rem;
+    }
+    .accordion-body.open { display: block; }
+
+    /* CLOUD PLATFORM COMPARISON CARDS */
+    .platform-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .platform-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      background: var(--surface);
+    }
+    .platform-card-header {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+    .platform-icon {
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .platform-icon.gcp { background: #fef3c7; }
+    .platform-icon.azure { background: #dbeafe; }
+    .platform-card-name {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--ink);
+    }
+    .platform-card-sub {
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+    }
+    .platform-services {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .platform-services li {
+      font-size: 0.8rem;
+      color: var(--ink-mid);
+      padding-left: 0.9rem;
+      position: relative;
+    }
+    .platform-services li::before {
+      content: '';
+      position: absolute; left: 0; top: 0.55em;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    /* IMPACT BADGES */
+    .impact-strip {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .impact-badge {
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+    }
+
+    /* BACK STRIP */
+    .back-strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .back-strip a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--teal);
+      text-decoration: none;
+      border-bottom: 1px solid var(--teal-light);
+      padding-bottom: 2px;
+    }
+    .back-strip a:hover { border-color: var(--teal); }
+
+    footer {
+      background: #0a0a0a;
+      color: #4b5563;
+      text-align: center;
+      padding: 1.75rem;
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 768px) {
+      .project-block,
+      .project-block.reverse { grid-template-columns: 1fr; direction: ltr; }
+      .platform-grid { grid-template-columns: 1fr; }
+      .page-hero { padding: 7rem 1.5rem 4rem; }
+      main { padding: 3rem 1.25rem 4rem; }
+    }
+  </style>
 </head>
-
 <body>
-    
-    <div class="container">
-        
-        <div class="image-section">
-            <h2><b>Digital Banking Platform Enhancement </b></h2>
-            <img src="images/fintech2.jpg" alt="Image 1">
-            <div class="text-section">
-                <p>
-                    <br><b>Platform Functionality Improvement and Compliance </b><br>I played a crucial role in improving platform functionality, ensuring it met strict regulatory requirements while enhancing the user experience. This involved ensuring every feature aligned with both industry standards and banking regulations to promote reliability and trust.<br>
-                    <span id="dots1">...</span><span id="more1" class="more"><b>Business Requirements Gathering and Documentation </b><br>Collaborated closely with stakeholders to gather, document, and prioritize business requirements. This process helped maintain alignment with industry standards, enhance compliance, and ensure that all improvements directly supported business goals.<br>
-                        <b>Process Analysis with UML and BPMN </b><br>Utilized UML and BPMN methodologies to conduct detailed process analysis, identifying gaps in the existing system and proposing targeted improvements. This structured approach provided a clear understanding of current processes and enabled effective communication across teams.<br>
-                        <b>Cross-Functional Collaboration </b><br>Worked with cross-functional teams, including IT, compliance, and risk management, to ensure that technical solutions met both business and regulatory needs. This collaboration bridged business objectives with technical and regulatory requirements, promoting a cohesive approach.<br>
-                        <b>Stakeholder Engagement and Technical Documentation</b><br>Facilitated workshops and interviews with stakeholders to capture insights and translate them into technical specifications and functional documentation. This ensured that development aligned with user needs and regulatory mandates.<br>
-                        <b>User Acceptance Testing (UAT)</b><br>Led User Acceptance Testing to verify that all changes met business and compliance objectives. Actively participated in testing and validation to confirm that the platform enhancements were reliable, functional, and regulatory-compliant.<br>
-                        <b>Project Outcomes</b><br>Successfully streamlined banking processes, reduced operational risks, and improved the overall user experience. Enhanced compliance with evolving regulations contributed to the platform’s long-term success and operational sustainability
-                    </span>
-                </p>
-                <button onclick="toggleText('dots1', 'more1', this)" class="my-button" id="btn1">Read More</button>
-            </div>
-        </div>
 
-        <!-- Second Image Section -->
-        <div class="image-section">
-            
-            <h2><b>Payments Gateway Implementation for E-commerce</b></h2>
-            <!-- <img src="images/fintech2.jpg"  width="300" height="300"alt="fintech"> -->
-            <img src="images/Gateways-1.png" alt="Image 2">
-            <div class="text-section">
-                <p>
-                    <b>End-to-End Integration Management</b><br> I Led the integration of multi-currency payment solutions, including fraud detection and PCI-DSS compliance, to create a secure, streamlined payment experience for users. This end-to-end approach ensured that every phase met strict industry standards and operational goals.<br>
-                    <span id="dots2">...</span><span id="more2" class="more"><b>Business Requirements Gathering and Documentation</b><br>Collaborated with key stakeholders to gather and document business requirements, focusing on seamless integration and a user-friendly multi-currency payment process. This foundational work ensured that all requirements were captured and aligned with the project’s objectives.<br>
-                        <b>Cross-Functional Collaboration</b><br>Facilitated workshops and worked closely with stakeholders from IT, finance, and third-party payment providers (e.g., PayPal, Stripe). This teamwork allowed for the smooth coordination and alignment of technical, financial, and compliance requirements.<br>
-                        <b>Use Case Development and Functional Specifications</b><br>Created detailed use cases and functional specifications to guide the integration process. This documentation provided clarity for the development and testing teams, ensuring that each feature met the intended functionality and compliance standards.<br> 
-                        <b>User Acceptance Testing (UAT) Oversight</b><br>Oversaw UAT to validate integration functionality, ensuring that the final solution met business and technical requirements. This phase was critical for verifying the system’s performance and reliability under real-world conditions.<br>
-                        <b>Performance Monitoring and Post-Implementation Results</b><br>Monitored key metrics post-implementation, achieving a 15% increase in transaction success rates and a 25% reduction in payment fraud incidents. These outcomes significantly improved the platform's efficiency and security.
-                    </span>
-                </p>
-                <button onclick="toggleText('dots2', 'more2', this)"class="my-button" id="btn2">Read More</button>
-            </div>
-        </div>
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Simerjeet Singh</a>
+  <a href="index.html#projects" class="nav-back">← Back to Portfolio</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="page-hero-eyebrow">Domain · Fintech</p>
+  <h1 class="page-hero-title">Data Migration &<br><em>Cloud Infrastructure</em></h1>
+  <p class="page-hero-desc">Delivering seamless ERP cloud migrations and scalable cloud architecture across GCP and Azure — bridging legacy systems with modern, data-driven platforms.</p>
+  <div class="page-hero-tags">
+    <span class="tag">Oracle Cloud Fusion</span>
+    <span class="tag">ETL Processes</span>
+    <span class="tag">Data Mapping</span>
+    <span class="tag">UAT Management</span>
+    <span class="tag">GCP & Azure</span>
+    <span class="tag">Data Governance</span>
+    <span class="tag">Compliance & Security</span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- PROJECT 1: Data Migration -->
+  <div class="project-block">
+    <div class="project-image-wrap">
+      <img src="images/fintech2.jpg" alt="Data Migration" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <div class="project-image-placeholder" style="display:none">🗄️</div>
     </div>
+    <div class="project-content">
+      <p class="project-number">Project 01 · ERP Migration</p>
+      <h2 class="project-title">Oracle Cloud Fusion Data Migration</h2>
 
-    <script>
-        function toggleText(dotsId, moreId, btn) {
-            var dots = document.getElementById(dotsId);
-            var moreText = document.getElementById(moreId);
-            
-            if (dots.style.display === "none") {
-                dots.style.display = "inline";
-                btn.innerHTML = "Read More"; 
-                moreText.style.display = "none";
-            } else {
-                dots.style.display = "none";
-                btn.innerHTML = "Read Less"; 
-                moreText.style.display = "inline";
-            }
-        }
-    </script>
+      <div class="accordion">
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Requirements Gathering & Data Mapping
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Collaborated closely with stakeholders to gather detailed migration requirements, analysing the legacy data structure and ensuring compatibility with Oracle's data model. Documented migration requirements and conducted thorough data mapping, aligning legacy fields with Oracle Cloud Fusion to establish clear data connections and ensure consistency throughout.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            ETL Process & Data Integrity
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Leveraged Extract, Transform, Load (ETL) tools to oversee the entire data extraction, transformation, and loading process, ensuring accuracy and integrity at every stage. Defined data validation and cleansing protocols to proactively address quality issues, maintaining a high standard of data integrity throughout the migration lifecycle.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            UAT & Issue Resolution
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Facilitated User Acceptance Testing (UAT) sessions to validate that migrated data met business requirements, tracking all issues through to resolution. Provided regular project updates to align milestones with stakeholder expectations and ensured all business needs were met before go-live.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Compliance, Security & Governance
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Ensured the migration process adhered to strict security and governance standards, addressing compliance requirements to safeguard sensitive financial data. This was a critical workstream to guarantee integrity and regulatory alignment of all migrated information.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Post-Migration Validation & Training
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Conducted final validation to confirm data integrity and performed post-migration testing to ensure smooth system operations. Delivered training sessions for end users, equipping them to manage data effectively in Oracle Cloud Fusion, and created detailed documentation to support ongoing system management.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="impact-strip">
+        <span class="impact-badge">Seamless Oracle transition</span>
+        <span class="impact-badge">Enhanced data governance</span>
+        <span class="impact-badge">Improved system performance</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2: Cloud Infrastructure -->
+  <div class="project-block reverse">
+    <div class="project-image-wrap">
+      <img src="images/Gateways-1.png" alt="Cloud Infrastructure" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <div class="project-image-placeholder" style="display:none">☁️</div>
+    </div>
+    <div class="project-content">
+      <p class="project-number">Project 02 · Cloud</p>
+      <h2 class="project-title">Cloud Infrastructure & Platform Strategy</h2>
+
+      <div class="accordion">
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Platform overview
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Deep expertise across both Google Cloud Platform and Microsoft Azure, leveraging each platform's distinct capabilities to drive scalable and reliable cloud services for digital transformation initiatives — from data storage and analytics to AI and CI/CD automation.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Migration & integration approach
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Used both GCP and Azure to facilitate cloud migrations, data integration, and process automation — ensuring business needs were met with the right technical solutions. Guided stakeholders in selecting appropriate services and defined data architecture to align with requirements, ensuring cost-effective, scalable outcomes.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Platform cards -->
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-card-header">
+            <div class="platform-icon gcp">☁️</div>
+            <div>
+              <div class="platform-card-name">Google Cloud</div>
+              <div class="platform-card-sub">GCP</div>
+            </div>
+          </div>
+          <ul class="platform-services">
+            <li>BigQuery — data warehousing</li>
+            <li>Cloud Pub/Sub — messaging</li>
+            <li>Cloud Functions — serverless</li>
+            <li>Real-time analytics & ML</li>
+          </ul>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-header">
+            <div class="platform-icon azure">🔷</div>
+            <div>
+              <div class="platform-card-name">Microsoft Azure</div>
+              <div class="platform-card-sub">Azure</div>
+            </div>
+          </div>
+          <ul class="platform-services">
+            <li>Azure SQL & Blob Storage</li>
+            <li>Data Factory — ETL pipelines</li>
+            <li>Azure DevOps — CI/CD</li>
+            <li>Azure ML & Security Center</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="impact-strip">
+        <span class="impact-badge">Scalable cloud adoption</span>
+        <span class="impact-badge">Improved analytics</span>
+        <span class="impact-badge">Regulatory compliance</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<div class="back-strip">
+  <a href="index.html#projects">← View all projects</a>
+</div>
+
+<footer>
+  <p>© <script>document.write(new Date().getFullYear())</script> Simerjeet Singh · London, UK</p>
+</footer>
+
+<script>
+  function toggleAccordion(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    btn.classList.toggle('open', !isOpen);
+    body.classList.toggle('open', !isOpen);
+  }
+</script>
+
 </body>
 </html>
