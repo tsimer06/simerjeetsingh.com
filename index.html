@@ -1,745 +1,915 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Simerjeet Singh Portfolio</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="icon" href="images/favicon_io/favicon-1.png">
-	<link rel="manifest" href="/site.webmanifest">
-<style>
-	
-html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(226, 223, 54, 0); }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simerjeet Singh — Business Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-  display: block; }
+    :root {
+      --teal: #0f766e;
+      --teal-light: #ccfbf1;
+      --teal-dark: #064e3b;
+      --gold: #b45309;
+      --gold-light: #fef3c7;
+      --ink: #111827;
+      --ink-mid: #374151;
+      --ink-soft: #6b7280;
+      --surface: #f9fafb;
+      --white: #ffffff;
+      --border: #e5e7eb;
+      --border-strong: #d1d5db;
+    }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #fff;
-  text-align: left;
-  background-color: #008080; }
+    html { scroll-behavior: smooth; }
 
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
+    }
 
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
 
-/*======================================
-//--//-->   ABOUT
-======================================*/
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-top: 60px;
+    }
+    .hero-text {
+      padding: 6rem 4rem 6rem 8rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px; height: 1px;
+      background: var(--teal);
+    }
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .hero-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      color: var(--ink-soft);
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero-stat-num {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+    .hero-cta {
+      display: flex; gap: 1rem; align-items: center;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 3px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .btn-outline {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex; align-items: center; gap: 0.5rem;
+      border-bottom: 1.5px solid var(--ink);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-outline:hover { color: var(--teal); border-color: var(--teal); }
 
-.about-mf .box-shadow-full {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
+    .hero-visual {
+      background: var(--surface);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      width: 300px;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal-light), #a7f3d0);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      color: var(--teal-dark);
+      margin-bottom: 1rem;
+    }
+    .hero-card-name {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .hero-card-role {
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      margin-bottom: 1.25rem;
+    }
+    .hero-card-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .tag {
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .tag-gold {
+      background: var(--gold-light);
+      color: var(--gold);
+    }
+    .hero-card-meta {
+      display: flex; justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+    .hero-card-meta span strong { color: var(--ink); display: block; font-size: 0.9rem; }
+    .hero-bg-circle {
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .hero-bg-circle-2 {
+      width: 260px; height: 260px;
+      border: 1px solid var(--border-strong);
+    }
 
-.about-mf .about-img {
-  margin-bottom: 2rem;
-}
+    /* SECTION SHARED */
+    section { padding: 6rem 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
 
-.about-mf .about-img img {
-  margin-left: 10px;
-}
+    /* ABOUT */
+    #about { background: var(--ink); color: white; }
+    #about .section-eyebrow { color: #5eead4; }
+    #about .section-title { color: white; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-body {
+      font-size: 1rem;
+      color: #9ca3af;
+      line-height: 1.85;
+      margin-bottom: 2rem;
+    }
+    .about-detail-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .about-detail-list li {
+      border-left: 2px solid #374151;
+      padding-left: 0.75rem;
+    }
+    .about-detail-list .detail-label {
+      font-size: 0.72rem;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.25rem;
+    }
+    .about-detail-list .detail-val {
+      font-size: 0.88rem;
+      color: #e5e7eb;
+    }
+    .skills-block { }
+    .skill-item { margin-bottom: 1.5rem; }
+    .skill-header {
+      display: flex; justify-content: space-between;
+      font-size: 0.85rem;
+      color: #d1d5db;
+      margin-bottom: 0.5rem;
+    }
+    .skill-bar-bg {
+      height: 2px;
+      background: #374151;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #0d9488, #5eead4);
+      border-radius: 2px;
+    }
 
+    /* EXPERIENCE */
+    #experience { background: var(--surface); }
+    .exp-grid {
+      display: grid;
+      gap: 0;
+    }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-meta { }
+    .exp-date {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 0.5rem;
+    }
+    .exp-company {
+      font-size: 0.88rem;
+      color: var(--teal);
+      font-weight: 500;
+    }
+    .exp-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .exp-body {
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+    }
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .exp-bullets li {
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.6;
+    }
+    .exp-bullets li::before {
+      content: '';
+      position: absolute; left: 0; top: 0.65em;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
 
-.skill-mf .progress {
-  /* background-color: #cde1f8; */
-  margin: .5rem 0 1.2rem 0;
-  border-radius: 0;
-  height: .7rem;
-}
+    /* PROJECTS */
+    #projects { background: var(--white); }
+    .projects-intro {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      max-width: 520px;
+      margin-bottom: 3rem;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      border-color: var(--teal);
+      transform: translateY(-3px);
+    }
+    .project-card-thumb {
+      height: 160px;
+      background: var(--surface);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-card-body { padding: 1.25rem; flex: 1; }
+    .project-card-domain {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .project-card-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+    .project-card-desc {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
 
-.skill-mf .progress .progress-bar {
-  height: .7rem;
-  background-color: #ffbd39;
-}
+    /* EDUCATION */
+    #education { background: var(--surface); }
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .edu-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+    }
+    .edu-year {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 0.75rem;
+    }
+    .edu-degree {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+    .edu-school {
+      font-size: 0.88rem;
+      color: var(--teal);
+      font-weight: 500;
+    }
 
+    /* CONTACT */
+    #contact { background: var(--ink); color: white; }
+    #contact .section-eyebrow { color: #5eead4; }
+    #contact .section-title { color: white; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .contact-intro {
+      font-size: 1rem;
+      color: #9ca3af;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .contact-items { display: flex; flex-direction: column; gap: 1.25rem; }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .contact-icon {
+      width: 40px; height: 40px;
+      background: #1f2937;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-item-label {
+      font-size: 0.72rem;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.2rem;
+    }
+    .contact-item-val {
+      font-size: 0.92rem;
+      color: #e5e7eb;
+    }
+    .contact-item-val a { color: #5eead4; text-decoration: none; }
+    .social-links { display: flex; gap: 1rem; margin-top: 2rem; }
+    .social-link {
+      background: #1f2937;
+      color: #9ca3af;
+      width: 42px; height: 42px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+    }
+    .social-link:hover { background: var(--teal); color: white; }
+    .contact-cta-box {
+      background: #1f2937;
+      border: 1px solid #374151;
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+    .contact-cta-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: white;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .contact-cta-text {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+    .btn-teal {
+      display: inline-block;
+      background: #0d9488;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .btn-teal:hover { background: #0f766e; }
 
-/* Animation styles */
-#typing-animation {
-  position: relative;
-  font-size: 30px;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typing 5s steps(20, end) infinite;
-}
+    /* FOOTER */
+    footer {
+      background: #0a0a0a;
+      color: #4b5563;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+    }
+    footer a { color: #6b7280; }
 
-#typing-animation:before {
-  content: "";
-  /* position: absolute; */
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #ccc;
-  animation: typing-cursor 0.5s ease-in-out infinite;
-}
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-text { padding: 5rem 2rem 3rem; }
+      .hero-visual { display: none; }
+      .about-grid, .contact-grid, .edu-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .about-detail-list { grid-template-columns: 1fr; }
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 1rem; }
+      .hero-text { padding: 5rem 1.5rem 3rem; }
+      .container { padding: 0 1.25rem; }
+    }
+    @media (max-width: 540px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Simerjeet Singh</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-@keyframes typing-cursor {
-  from {
-    width: 5px;
-  }
-  to {
-    width: 0;
-  }
-}
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">London, United Kingdom</p>
+    <h1 class="hero-name">Simerjeet<br>Singh</h1>
+    <p class="hero-role">Business Analyst</p>
+    <p class="hero-desc">13 years bridging business complexity and technology — from ERP migrations to CRM optimisation, across fintech, logistics, aviation, and telecom.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">13+</div>
+        <div class="hero-stat-label">Years experience</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">8</div>
+        <div class="hero-stat-label">Projects</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">5</div>
+        <div class="hero-stat-label">Industries</div>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Get in touch</a>
+      <a href="https://www.linkedin.com/in/contact-businessanalyst-simerjeetsingh/" class="btn-outline" target="_blank">LinkedIn ↗</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-bg-circle"></div>
+    <div class="hero-bg-circle hero-bg-circle-2"></div>
+    <div class="hero-card">
+      <div class="hero-avatar">SS</div>
+      <div class="hero-card-name">Simerjeet Singh</div>
+      <div class="hero-card-role">Business Analyst · London</div>
+      <div class="hero-card-tags">
+        <span class="tag">Business Analysis</span>
+        <span class="tag">GAP Analysis</span>
+        <span class="tag">Power BI</span>
+        <span class="tag tag-gold">ERP Migration</span>
+        <span class="tag tag-gold">Agile / SAFe</span>
+        <span class="tag">SQL</span>
+      </div>
+      <div class="hero-card-meta">
+        <span><strong>40%</strong>faster ERP delivery</span>
+        <span><strong>35%</strong>process gains</span>
+        <span><strong>20%</strong>ops efficiency</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-
-/* project image zoom effect */
-
-.zoom-effect {
-  overflow: hidden;
-  transition: transform 0.3s ease-out;
-}
-
-.zoom-effect:hover {
-  transform: scale(1.1);
-}
-
-
-</style>
-
-
-  </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	  
-	  
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Simerjeet Singh</a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
-	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-	  <section id="home-section" class="hero">
-		  <div class="home-slider  owl-carousel">
-	       <div class="slider-item ">
-	      	<div class="overlay"></div>
-	         <div class="container">
-	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" >
-	          	 <div class="overlay"></div>
-	          	</div>
-		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<span class="subheading">Hello!</span>
-			            <h1 class="mb-4 mt-3">I'm <span>Simerjeet Singh</span></h1>
-
-						<!-- Element to contain animated typing -->
-						<span id="typing-animation"></span>
-
-						<script>
-
-						// Initialize the typing animation
-						const typingAnimationElement = document.getElementById('typing-animation');
-
-						// Create an array of typing text
-						const typingTexts = [
-						'Engineer  ',
-						'Developer  ',
-						'  ',
-						];
-
-						// Create a function to display the typing animation for a given text
-						function playTypingAnimation(text) {
-						// Loop through each character and add it to the element
-						for (let i = 0; i < text.length; i++) {
-							setTimeout(() => {
-							typingAnimationElement.textContent += text[i];
-							}, i * 200); // Increase the delay to slow down the typing animation
-						}
-
-						// Once the animation is complete, reset the text and start over
-						setTimeout(() => {
-							typingAnimationElement.textContent = '';
-							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-						}, text.length * 200);
-						}
-
-						// Start the typing animation loop
-						playTypingAnimation(typingTexts[0]);
-
-						</script>
-
-						<br>
-						<br>
-			            <h2>Business Analyst</h2>
-						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
-						<!-- <br> -->
-			            <!--<p><a href="https://www.youtube.com/@RishabhMishraOfficial" class="btn btn-primary py-3 px-4">YouTube</a> 
-							<a href="https://github.com/rishabhnmishra" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>-->
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
-	      </div>
-		</div>
-    </section>
-
-
-
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-    	<div class="container">
-			<div class="row">
-				<div class="row d-flex align-items-stretch">
-				<!-- <div class="row d-flex"> -->
-					<div class="col-md-6 col-lg-5 d-flex">
-						<div class="img-about img d-flex align-items-stretch">
-							<div class="overlay">
-								<div class="row">
-									<div class="col-sm-6 col-md-5">
-									  <div class="about-img">
-										<img src="images/myimage.png" class="img-fluid  b-shadow-a" alt="">
-									  </div>
-									</div>
-									<!-- Details next to profile image -->
-									<div class="col-sm-6 col-md-7">
-									  <div class="about-info">
-										<p><span class="title-s">Name: </span> <span>Simerjeet Singh</span></p>
-										<p><span class="title-s">Job Role: </span> <span>Business Analyst</span></p>
-										<p><span class="title-s">Experience: </span> <span>13 Years </span></p>
-										<p><span class="title-s">Address: </span> <span>London, United kingdom</span></p>
-									  </div>
-									</div>
-								  </div>
-
-								<div class="skill-mf">
-									<p class="title-s">Skills</p>
-									<span>Business Analysis</span> <span class="pull-right">95%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>Requirements Engineering</span> <span class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>GAP Analysis</span> <span class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>Statistical Analysis</span> <span class="pull-right">85%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>Power BI</span> <span class="pull-right">80%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-						<div class="row justify-content-start pb-3">
-							<div class="col-md-12 heading-section ftco-animate">
-								
-								<h1 class="big">About</h1>
-								<h2 class="mb-4">About Me</h2>
-								
-								<p>A proactive and detail-oriented business analyst with 8+ years of strong experience in change management, transformations, performing Gap analysis, SWOT analysis, information gathering, documented user stories and simplified solution development within the Industry, Logistics, Fintech, aviation and telecom sectors ,accomplished communicator with strong investigation, problem solving, decision-making skills combined with requirements engineering, business process modelling, mapping out key dependencies and stakeholder engagement,accelerated ERP data migration by 40% through efficient stakeholder management and data analysis. Led crew integration and logistics system enhancements, streamlining processes by 35%. Optimized CRM compliance and API web services, resulting in a 20% boost in operational efficiency across fintech and eCommerce projects.</p>
-								<ul class="about-info mt-4 px-md-0 px-2">
-									<li class="d-flex"><span>Profile:</span> <span>Data Science &amp; Analytics</span></li>
-									<li class="d-flex"><span>Domain:</span> <span>Logistcis,Retail, Ecommerce, Fintech &amp; Airline, Telecom</span></li>
-									<li class="d-flex"><span>Education:</span> <span>Bachelor of Engineering, Diploma in IT Project Management & Direction </span></li>
-									<li class="d-flex"><span>Language:</span> <span>Spanish, Portuguese,Hindi</span></li>
-									<li class="d-flex"><span>Tools:</span> <span>Microsoft ofice, Power BI, Excel,ERP,UML,BPMN, Visio, Programming,SQL,Wireframes,Lean &amp; Realtional Databases </span></li>
-									<li class="d-flex"><span>Other Skills:</span> <span>Cloud(GCP,Azure), Excel, Git, JIRA, Google Analytics,Confluence,Agile(SAFe) &amp; SEO</span></li>
-									<!-- <li class="d-flex"><span>Interest:</span> <span>Traveling, Travel Photography, Teaching</span></li> -->
-									
-								</ul>
-							</div>
-						</div>
-
-
-						<div class="counter-wrap ftco-animate d-flex mt-md-3">
-							<div class="text">
-								<p class="mb-4">
-									<!-- <span class="number" data-number="30">0</span> <span>+</span> -->
-									<!-- <span>&nbsp; Projects completed</span> -->
-								</p>
-								<p><a href="https://www.linkedin.com/in/contact-businessanalyst-simerjeetsingh/" class="btn btn-primary py-3 px-3">LinkedIn</a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-    </section>
-
-
-
-	
-    <section class="ftco-section ftco-no-pb" id="resume-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-10 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Resume</h1>
-            <h2 class="mb-4">Resume</h2>
-            <p>Seasoned Business Analyst with experience in gap analysis, requirements gathering, and cloud solutions (PaaS, SaaS), I specialize in leading integrations and managing projects. My expertise spans identifying business needs, optimizing processes, and delivering tailored solutions to drive operational efficiency and strategic alignment.</p>
-          </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <p class="section-eyebrow">About</p>
+        <h2 class="section-title">Turning complexity into clarity</h2>
+        <p class="about-body">A proactive, detail-oriented analyst with deep experience across change management, transformation programmes, and digital platform enhancement. I connect stakeholder needs to technical solutions, having delivered work across logistics, fintech, aviation, and telecom — always with an eye on efficiency, data quality, and meaningful business outcomes.</p>
+        <ul class="about-detail-list">
+          <li>
+            <div class="detail-label">Domain</div>
+            <div class="detail-val">Logistics · Retail · Fintech · Airline · Telecom</div>
+          </li>
+          <li>
+            <div class="detail-label">Education</div>
+            <div class="detail-val">B.Eng + Diploma in IT PM</div>
+          </li>
+          <li>
+            <div class="detail-label">Languages</div>
+            <div class="detail-val">Spanish · Portuguese · Hindi</div>
+          </li>
+          <li>
+            <div class="detail-label">Frameworks</div>
+            <div class="detail-val">Agile · SAFe · Waterfall</div>
+          </li>
+        </ul>
+      </div>
+      <div class="skills-block">
+        <p class="section-eyebrow" style="margin-bottom:1.5rem;">Core skills</p>
+        <div class="skill-item">
+          <div class="skill-header"><span>Business Analysis</span><span>95%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:95%"></div></div>
         </div>
-
-		<div class="row">
-			<h1 class="big-4">Experience</h1>
-			<div class="underline"></div>
-		</div>
-		<br>
-		
-		<div class="row">
-			<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">OCT 2025-Present</span>
-						<h2>Digital Anlayst</h2>
-						<span class="position">The Storage Club Ltd</span>
-						<p class="mt-4">Leading application enhancement initiatives for digital platforms. 
-							<ul>
-								<!-- <li>Led the business analysis workstream for improving LMS, managing stakeholder requirements, and aligning business processes with organizational goals.</li> -->
-								<li>Delivered data-driven business evaluations to optimise digital performance and support commercial decision-making.</li>
-								<li>Develop and maintain Power BI KPI dashboards enabling data-driven decisions; identified production risks and coordinated resolution across technical teams to maintain operational continuity.</li>
-								<li>Conduct statistical trend and conversion analysis across customer journey data, synthesising findings into business cases and prioritised change proposals for senior stakeholders.</li>
-							</ul>
-						</p>
-					</div>
-
-				</div>
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">AUG 2024- JUN 2025</span>
-						<h2>Business Anlayst</h2>
-						<span class="position">Reynolds & Parker Solutions</span>
-						<p class="mt-4">A leading digital advancements, evolving regulations, and ever-changing market demands. 
-							<ul>
-								<!-- <li>Led the business analysis workstream for improving LMS, managing stakeholder requirements, and aligning business processes with organizational goals.</li> -->
-								<li>Driving LMS improvements for user engagement, identifying trends, and recommending enhancements based on data-driven insights.</li>
-								<li>Generated functional requirements and test strategies to ensure system enhancements meet both business objectives and user expectations.</li>
-								<li>Developed process flow maps, UML diagrams, and operational workflows to manage data flow between systems, increasing transparency and supporting streamlined cross-functional collaboration.</li>
-							</ul>
-						</p>
-					</div>
-
-				</div>
-
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">AUG 2021- OCT2023</span>
-						<h2>Business Analyst</h2>
-						<span class="position">NTT Ltd</span>
-						<p class="mt-4">Streamlined ERP migration specialist: transforming legacy systems to cloud platforms, optimizing processes, and enhancing data-driven decision-making for improved operational efficiency. 
-							<ul>
-								<li>Utilized data analysis and modelling techniques to critically evaluate data sources, optimize integration between operational and financial data flows, and establish effective data structures.</li>
-								<li>Developed test scripts and criteria for ERP system testing, linking back to business requirements and ensuring end-to-end traceability.</li>
-								<li>Used the SQL, Power BI, Excel tools to support data validation, decision-making, and ensure data quality, security, and compliance throughout the project lifecycle.</li>
-							</ul>
-						</p>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-6">
-						<div class="resume-wrap ftco-animate">
-							<span class="date">APR 2018- JAN 2021</span>
-							<h2>Business Anlayst Expert</h2>
-							<span class="position">Zenta Group</span>
-							<p class="mt-4">A leading digital advancements, evolving regulations, and ever-changing market demands. 
-								<ul>
-									<li>Demonstrated detail-oriented expertise in controlling the big picture, scope, traceability, problem-solving, decision-making, and managing changes within projects and programs.</li>
-									</li>Mapped As-Is and To-Be Operating model mapping, enhancing business processes and software development by leveraging process flow mapping, UX/UI design principles, and effective change management strategies.</li>
-									<li>Scripted and maintained user stories, epics, and acceptance criteria within Jira and Confluence to streamline the CI/CD pipeline in the crew integration process.</li>
-									
-								</ul>
-							</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="resume-wrap ftco-animate">
-							<span class="date">DEC 2014- FEB 2018</span>
-							<h2>Process Analyst</h2>
-							<span class="position">KHC</span>
-							<p class="mt-4">KHC focus on technology-driven products and services through software development, hardware solutions, IT consulting, cybersecurity, cloud services, and digital transformation.
-								<ul>
-									<li>Carried API analysis and testing to optimize system integration architecture, enhancing performance and meeting business requirements.</li>
-									<li>Extensive expertise in ecommerce portal development for B2B and B2C environments, digital experience platforms, coupled with hands-on experience in order management, inventory, and advanced pricing strategies.</li>
-									<li>Managed and mitigated financial risks by conducting thorough risk assessments, enhancing compliance frameworks, and contributing to a strong control and governance agenda within the banking sector.</li>
-								</ul>
-							</p>
-						</div>
-					</div>
-		</div>
-	</div>
-		
-		<br>
-		<br>
-		
-		
-		<div class="row">
-			<h1 class="big-4">Education</h1>
-			<div class="underline"></div>
-		</div>
-		<br>
-		<br>
-			<div class="row">
-    			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2010-2014</span>
-    					<h2>Bachelor of Engineering</h2>
-    					<span class="position">Vidyapeeth University</span>
-    					<p class="mt-4">Grade: First class </p>
-    				</div>
-    			</div>
-				<br>
-    			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2021-2022</span>
-    					<h2>Diploma in IT Project Management & Direction</h2>
-    					<span class="position">DuocUC</span>
-    					<p class="mt-4">Grade: 5,5</p>
-    				</div>
-				</div>
-    		</div>
-
-    		<div class="row justify-content-center mt-5">
-    			<div class="col-md-6 text-center ftco-animate">
-    				<p><a href="#" class="btn btn-primary py-4 px-4">Download CV</a></p>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
-   
-
-    <section class="ftco-section" id="project-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Projects</h1>
-            <h2 class="mb-4">Projects</h2>
-            <p>Below are the Domain</p>
-          </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Requirements Engineering</span><span>90%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
         </div>
-
-        <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="Fintech.html" class="block-20 zoom-effect" style="background-image: url('images/Fintech.jpg');"></a>
-			  
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="">Fintech</a></h3>
-                <p>Driving innovative financial solutions through data-driven insights and strategic analysis in fintech</p>
-				<a href="Fintech.html" class="btn btn-primary py-2 px-3">learnmore</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="" class="block-20 zoom-effect" style="background-image: url('images/logistics.jpg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="">Logistics</a></h3>
-                <p>Optimizing logistics operations through process analysis and technology-driven solutions for seamless efficiency</p>
-				<a href="Logistics.html" class="btn btn-primary py-2 px-3">learnmore</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry">
-              <a href="" class="block-20 zoom-effect" style="background-image: url('images/Airline.jpg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="">Airline</a></h3>
-                <p>Implemented a complex integration for crew scheduling, enhancing operational efficiency and improving crew satisfaction through optimized scheduling</p>
-				<a href="Airline.html" class="btn btn-primary py-2 px-3">learnmore</a></p>
-              </div>
-            </div>
-          </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>GAP Analysis</span><span>90%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
         </div>
-	<br>
-		<!-- added justify-content-center to center align the last two projects -->
-		<div class="row d-flex justify-content-center">  
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-				<a href="" class="block-20 zoom-effect" style="background-image: url('images/telecom.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="">Data Migration</a></h3>
-				  <p>Driving innovation in telecom cloud services by aligning business needs with cutting-edge solutions to enhance scalability and operational agility</p>
-				  <a href="DataMigration.html" class="btn btn-primary py-2 px-3">learnmore</a></p>
-				</div>
-			  </div>
-			</div>
-			<!-- <div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-				<a href="" class="block-20 zoom-effect" style="background-image: url('images/claim.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="">Insurance</a></h3>
-				  <p>ity.</p>
-				  <a href="Insurance.html" class="btn btn-primary py-2 px-3">learnmore</a></p>
-				</div>
-			  </div>
-			</div> -->
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-				<a href="" class="block-20 zoom-effect" style="background-image: url('images/claim.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-					<h3 class="heading"><a href="">Insurance</a></h3>
-				  <p>Streamlining Claims, Enhancing Experiences: Delivering Efficiency and Accuracy in Insurance Claims Management</p>
-				  <a href="Insurance.html" class="btn btn-primary py-2 px-3">learnmore</a></p>
-				</div>
-			  </div>
-			</div>
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry">
-				<a href="" class="block-20 zoom-effect" style="background-image: url('images/LMSS.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-	
-				  <h3 class="heading"><a href="">Learning Management System</a></h3>
-				  <p>Empowering Learning Through Seamless LMS Enhancements for a Smarter, User-Centric Experience</p>
-				  <a href="Learningmanagementsystem.html" class="btn btn-primary py-2 px-3">learnmore</a></p>
-				</div>
-			  </div>
-			</div>
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-				<a href="https://github.com/users/tsimer06/projects/1" class="block-20 zoom-effect" style="background-image: url('images/Picture1.png');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="https://github.com/users/tsimer06/projects/1">Project Management Methodologies</a></h3>
-				  <p>Utilized Agile, Waterfall  framework to implement complex projects efficiently</p>
-				  <a href="ProjectManagement.html" class="btn btn-primary py-2 px-3">learnmore</a></p>
-				</div>
-			  </div>
-			</div>
-		 </div>
-	 
-	  
-	  
-	 
-    </section>
-
-	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
-      <div class="container">
-		<div class="row d-md-flex align-items-center">
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="5">5</strong>
-                <span>Achievements</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="8">8</strong>
-                <span>Projects</span>
-              </div>
-            </div>
-          </div>
-          <!-- <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="1000">0</strong>
-                <span>Mentored Students</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="500">0</strong>
-                <span>Cups of coffee</span>
-              </div>
-            </div>
-          </div> -->
+        <div class="skill-item">
+          <div class="skill-header"><span>Statistical Analysis</span><span>85%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Power BI</span><span>80%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>SQL & Data Modelling</span><span>78%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:78%"></div></div>
         </div>
       </div>
-	
-	  <div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/abc.jpg)">
-			<!-- <div class="container"> -->
-				<div class="row justify-content-center">
-					<div class="col-md-7 ftco-animate text-center">
-						<h2>More projects on<span> Github  </span> </h2>
-						<div class="heading"> <h4> I love to solve business problems &amp; uncover hidden data stories </h4>
-						<br>
-						<p><a href="https://github.com/users/tsimer06" class="btn btn-primary py-3 px-5">GitHub</a></p>
-						</div>
-					</div>
-				</div>
-			<!-- </div> -->
-		</div>
-	</section>
+    </div>
+  </div>
+</section>
 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="section-eyebrow">Experience</p>
+    <h2 class="section-title">Where I've worked</h2>
+    <div class="exp-grid" style="margin-top:3rem;">
 
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Oct 2025 — Present</div>
+          <div class="exp-company">The Storage Club Ltd</div>
+        </div>
+        <div>
+          <div class="exp-role">Digital Analyst</div>
+          <ul class="exp-bullets">
+            <li>Delivered data-driven business evaluations to optimise digital performance and support commercial decision-making.</li>
+            <li>Built and maintained Power BI KPI dashboards; identified production risks and coordinated resolution across technical teams.</li>
+            <li>Conducted statistical trend and conversion analysis across customer journey data, synthesising findings into prioritised change proposals for senior stakeholders.</li>
+          </ul>
+        </div>
+      </div>
 
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Contact</h1>
-            <h2 class="mb-4">Contact Me</h2>
-            <p>Below are the details to reach out to me!</p>
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Aug 2024 — Jun 2025</div>
+          <div class="exp-company">Reynolds & Parker Solutions</div>
+        </div>
+        <div>
+          <div class="exp-role">Business Analyst</div>
+          <ul class="exp-bullets">
+            <li>Drove LMS improvements for user engagement, identifying trends and recommending enhancements based on data-driven insights.</li>
+            <li>Generated functional requirements and test strategies to ensure system enhancements met business objectives and user expectations.</li>
+            <li>Developed process flow maps, UML diagrams, and operational workflows to manage data flow between systems.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Aug 2021 — Oct 2023</div>
+          <div class="exp-company">NTT Ltd</div>
+        </div>
+        <div>
+          <div class="exp-role">Business Analyst</div>
+          <ul class="exp-bullets">
+            <li>Applied data analysis and modelling techniques to optimise integration between operational and financial data flows.</li>
+            <li>Developed test scripts and criteria for ERP system testing, ensuring end-to-end traceability back to business requirements.</li>
+            <li>Used SQL, Power BI, and Excel to support data validation, decision-making, and compliance throughout the project lifecycle.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Apr 2018 — Jan 2021</div>
+          <div class="exp-company">Zenta Group</div>
+        </div>
+        <div>
+          <div class="exp-role">Business Analyst Expert</div>
+          <ul class="exp-bullets">
+            <li>Mapped As-Is and To-Be operating models, enhancing business processes using process flow mapping and UX/UI design principles.</li>
+            <li>Scripted and maintained user stories, epics, and acceptance criteria in Jira and Confluence to streamline the CI/CD pipeline.</li>
+            <li>Led scope, traceability, and change management across crew integration programmes in aviation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Dec 2014 — Feb 2018</div>
+          <div class="exp-company">KHC</div>
+        </div>
+        <div>
+          <div class="exp-role">Process Analyst</div>
+          <ul class="exp-bullets">
+            <li>Carried out API analysis and testing to optimise system integration architecture for B2B and B2C ecommerce environments.</li>
+            <li>Managed financial risk through thorough risk assessments and enhanced compliance frameworks within the banking sector.</li>
+            <li>Oversaw order management, inventory systems, and advanced pricing strategies across digital experience platforms.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="section-eyebrow">Projects</p>
+    <h2 class="section-title">Domain expertise</h2>
+    <p class="projects-intro">Hands-on project experience across six industries, each presenting distinct challenges in process, data, and stakeholder complexity.</p>
+    <div class="projects-grid">
+      <a href="Fintech.html" class="project-card">
+        <div class="project-card-thumb">💳</div>
+        <div class="project-card-body">
+          <div class="project-card-domain">Fintech</div>
+          <div class="project-card-title">Financial Solutions & CRM Optimisation</div>
+          <div class="project-card-desc">Data-driven insights and strategic analysis driving innovative financial solutions and API web service improvements.</div>
+        </div>
+      </a>
+      <a href="Logistics.html" class="project-card">
+        <div class="project-card-thumb">🚚</div>
+        <div class="project-card-body">
+          <div class="project-card-domain">Logistics</div>
+          <div class="project-card-title">Logistics System Enhancement</div>
+          <div class="project-card-desc">Streamlined operations through process analysis and technology-driven solutions, improving efficiency by 35%.</div>
+        </div>
+      </a>
+      <a href="Airline.html" class="project-card">
+        <div class="project-card-thumb">✈️</div>
+        <div class="project-card-body">
+          <div class="project-card-domain">Airline</div>
+          <div class="project-card-title">Crew Scheduling Integration</div>
+          <div class="project-card-desc">Complex integration for crew scheduling, enhancing operational efficiency and crew satisfaction through optimised rostering.</div>
+        </div>
+      </a>
+      <a href="DataMigration.html" class="project-card">
+        <div class="project-card-thumb">☁️</div>
+        <div class="project-card-body">
+          <div class="project-card-domain">Telecom</div>
+          <div class="project-card-title">ERP Cloud Data Migration</div>
+          <div class="project-card-desc">Accelerated ERP data migration by 40% through efficient stakeholder management and rigorous data analysis.</div>
+        </div>
+      </a>
+      <a href="Insurance.html" class="project-card">
+        <div class="project-card-thumb">🛡️</div>
+        <div class="project-card-body">
+          <div class="project-card-domain">Insurance</div>
+          <div class="project-card-title">Claims Management</div>
+          <div class="project-card-desc">Streamlining claims processes for enhanced accuracy, efficiency, and customer experience.</div>
+        </div>
+      </a>
+      <a href="Learningmanagementsystem.html" class="project-card">
+        <div class="project-card-thumb">📚</div>
+        <div class="project-card-body">
+          <div class="project-card-domain">EdTech</div>
+          <div class="project-card-title">Learning Management System</div>
+          <div class="project-card-desc">Empowering learning through seamless LMS enhancements for a smarter, user-centric experience.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <p class="section-eyebrow">Education</p>
+    <h2 class="section-title">Academic background</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-year">2010 – 2014</div>
+        <div class="edu-degree">Bachelor of Engineering</div>
+        <div class="edu-school">Vidyapeeth University · First Class</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">2021 – 2022</div>
+        <div class="edu-degree">Diploma in IT Project Management & Direction</div>
+        <div class="edu-school">DuocUC · Grade 5.5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-eyebrow">Contact</p>
+    <h2 class="section-title">Let's work together</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">Whether you're looking for a business analyst to lead a transformation programme, a collaborative problem-solver for your next project, or just want to connect — I'm always open to a conversation.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-val">London, United Kingdom</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-val"><a href="tel:+447853134760">+44 7853 134 760</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-val"><a href="mailto:tsimerjeet06@gmail.com">tsimerjeet06@gmail.com</a></div>
+            </div>
           </div>
         </div>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/contact-businessanalyst-simerjeetsingh/" class="social-link" target="_blank">in</a>
+          <a href="https://github.com/tsimer06" class="social-link" target="_blank">gh</a>
+        </div>
+      </div>
+      <div class="contact-cta-box">
+        <div class="contact-cta-title">Have a project in mind?</div>
+        <p class="contact-cta-text">I specialise in requirements engineering, process optimisation, and cross-functional stakeholder management. If you have a challenge that needs clear thinking and structured analysis, let's talk.</p>
+        <a href="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfKP_vDj_JB1X0gofwwYRfk4L-RfuqZzDWbgYj-0XOFJXovRg/viewform" class="btn-teal" target="_blank">Send a message ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="row d-flex contact-info justify-content-center mb-5">
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-map-signs"></span>
-          		</div>
-          		<h3 class="mb-4 ">Address</h3>
-	            <p>London, United kingdom</p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-phone2"></span>
-          		</div>
-          		<h3 class="mb-4">Contact Number</h3>
-	            <p><a href="tel://0101010101">+447853134760</a></p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-paper-plane"></span>
-          		</div>
-          		<h3 class="mb-4">Email Address</h3>
-	            <p><a href="mailto:info@yoursite.com">tsimerjeet06@gmail.com</a></p>
-	          </div>
-          </div>
-          <!-- <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-globe"></span>
-          		</div>
-          		<h3 class="mb-4">Download Resume</h3>
-	            <p><a href="#">resumelink</a></p>
-	          </div>
-          </div> -->
+<footer>
+  <p>© <script>document.write(new Date().getFullYear())</script> Simerjeet Singh · London, UK</p>
+</footer>
 
-		  <div class="container">
-			<br>
-			<br>
-			<div class="row justify-content-center">
-				<div class="col-md-7 ftco-animate text-center">
-					<h2>Have a <span> Question?  </span> <a href="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfKP_vDj_JB1X0gofwwYRfk4L-RfuqZzDWbgYj-0XOFJXovRg/viewform?vc=0&c=0&w=1&flr=0&usp=mail_form_link&pli=1" class="btn btn-primary py-3 px-5">Click Here</a> </h2>
-					<!--<p><a href="test.html" class="btn btn-primary py-3 px-5">clck</a></p> -->
-				</div>
-			</div>
-				<br>
-					<ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
-					  <li class="ftco-animate normal-txt">Find me on  </li> 
-					  <!-- <li class="ftco-animate"><a href="https://www.youtube.com/@RishabhMishraOfficial"><span class="icon-youtube"></span></a></li> -->
-					  <li class="ftco-animate"><a href="https://www.linkedin.com/in/contact-businessanalyst-simerjeetsingh/"><span class="icon-linkedin"></span></a></li>
-
-					  <!-- <li class="ftco-animate"><a href="https://www.fiverr.com/sim051?up_rollout=true"><span class="icon"></span></a></li>  -->
-					  <!-- <li class="flaticon"><a href="https://www.fiverr.com/sim051?up_rollout=true"><span class="flaticon-Fiverr"><b>fi</b></span></a></li> -->
-					  <!-- <li class="ftco-animate"><a href="https://twitter.com/rishabhnmishra"><span class="icon-twitter"></span></a></li> -->
-					  <!-- <li class="ftco-animate"><a href="https://twitter.com/rishabhnmishra"><span class="icon-facebook"></span></a></li> -->
-				      <!-- <li class="ftco-animate"><a href="https://www.instagram.com/rishabhnmishra/"><span class="icon-instagram"></span></a></li> -->
-					</ul>
-				<br>
-		   </div>
-   </div>
- </section>
-
-
- 
-	
-    <footer class="ftco-footer ftco-section">
-		<div class="container">
-		  <div class="row">
-			<div class="col-md-12 text-center">
-  
-			  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-			</div>
-		  </div>
-		</div>
-	  </footer>
-
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  
-  <script src="js/main.js"></script>
-    
-  </body>
+</body>
 </html>
