@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fintech Projects — Simerjeet Singh</title>
+  <title>Fintech — Simerjeet Singh</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,7 +51,6 @@
       font-weight: 500;
       color: var(--ink-soft);
       text-decoration: none;
-      letter-spacing: 0.03em;
       display: flex; align-items: center; gap: 0.4rem;
       transition: color 0.2s;
     }
@@ -91,7 +90,7 @@
     .page-hero-desc {
       font-size: 1rem;
       color: #9ca3af;
-      max-width: 580px;
+      max-width: 600px;
       margin: 0 auto 2rem;
       line-height: 1.8;
     }
@@ -108,7 +107,34 @@
       border: 1px solid #374151;
     }
 
-    /* MAIN CONTENT */
+    /* METRICS STRIP */
+    .metrics-strip {
+      background: #0d9488;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 5rem;
+      flex-wrap: wrap;
+    }
+    .metric {
+      text-align: center;
+      color: white;
+    }
+    .metric-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .metric-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #99f6e4;
+    }
+
+    /* MAIN */
     main {
       max-width: 1100px;
       margin: 0 auto;
@@ -128,29 +154,61 @@
     .project-block.reverse { direction: rtl; }
     .project-block.reverse > * { direction: ltr; }
 
+    /* IMAGE WRAP */
     .project-image-wrap {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 260px;
-      padding: 2rem;
+      min-height: 300px;
+      padding: 2.5rem 2rem;
+      gap: 1.5rem;
     }
     .project-image-wrap img {
       width: 100%;
-      max-width: 320px;
+      max-width: 280px;
       height: auto;
       object-fit: contain;
       border-radius: 6px;
     }
     .project-image-placeholder {
-      font-size: 4rem;
-      opacity: 0.3;
+      font-size: 4.5rem;
+      opacity: 0.2;
     }
 
+    /* Integration flow diagram inside image wrap */
+    .integration-flow {
+      width: 100%;
+      max-width: 280px;
+    }
+    .flow-node {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 0.4rem;
+    }
+    .flow-node.accent {
+      background: var(--teal-light);
+      border-color: #99f6e4;
+      color: var(--teal-dark);
+    }
+    .flow-arrow {
+      text-align: center;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* PROJECT CONTENT */
     .project-number {
       font-size: 0.7rem;
       font-weight: 600;
@@ -169,7 +227,7 @@
     }
 
     /* ACCORDION */
-    .accordion { display: flex; flex-direction: column; gap: 0; }
+    .accordion { display: flex; flex-direction: column; }
     .accordion-item { border-bottom: 1px solid var(--border); }
     .accordion-item:first-child { border-top: 1px solid var(--border); }
     .accordion-btn {
@@ -205,59 +263,47 @@
     }
     .accordion-body.open { display: block; }
 
-    /* CLOUD PLATFORM COMPARISON CARDS */
-    .platform-grid {
+    /* OUTCOME CARDS */
+    .outcome-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      gap: 0.75rem;
       margin-top: 1.25rem;
     }
-    .platform-card {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.25rem;
+    .outcome-card {
       background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
     }
-    .platform-card-header {
-      display: flex; align-items: center; gap: 0.6rem;
-      margin-bottom: 0.75rem;
+    .outcome-card-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 0.3rem;
     }
-    .platform-icon {
-      width: 32px; height: 32px;
-      border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-    .platform-icon.gcp { background: #fef3c7; }
-    .platform-icon.azure { background: #dbeafe; }
-    .platform-card-name {
-      font-weight: 600;
-      font-size: 0.92rem;
-      color: var(--ink);
-    }
-    .platform-card-sub {
-      font-size: 0.72rem;
+    .outcome-card-label {
+      font-size: 0.78rem;
       color: var(--ink-soft);
+      line-height: 1.4;
     }
-    .platform-services {
-      list-style: none;
+
+    /* TECH TAGS ROW */
+    .tech-row {
       display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
     }
-    .platform-services li {
-      font-size: 0.8rem;
+    .tech-tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
       color: var(--ink-mid);
-      padding-left: 0.9rem;
-      position: relative;
-    }
-    .platform-services li::before {
-      content: '';
-      position: absolute; left: 0; top: 0.55em;
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
     }
 
     /* IMPACT BADGES */
@@ -304,7 +350,8 @@
     @media (max-width: 768px) {
       .project-block,
       .project-block.reverse { grid-template-columns: 1fr; direction: ltr; }
-      .platform-grid { grid-template-columns: 1fr; }
+      .outcome-grid { grid-template-columns: 1fr; }
+      .metrics-strip { gap: 2.5rem; }
       .page-hero { padding: 7rem 1.5rem 4rem; }
       main { padding: 3rem 1.25rem 4rem; }
     }
@@ -320,167 +367,235 @@
 
 <!-- PAGE HERO -->
 <div class="page-hero">
-  <p class="page-hero-eyebrow">Domain · Fintech</p>
-  <h1 class="page-hero-title">Data Migration &<br><em>Cloud Infrastructure</em></h1>
-  <p class="page-hero-desc">Delivering seamless ERP cloud migrations and scalable cloud architecture across GCP and Azure — bridging legacy systems with modern, data-driven platforms.</p>
+  <p class="page-hero-eyebrow">Domain · Retail</p>
+  <h1 class="page-hero-title">CRM & Payment Gateway<br><em>System Integration</em></h1>
+  <p class="page-hero-desc">Delivering end-to-end system integration for retail — from CRM platform optimisation driving customer loyalty, to a secure multi-channel payment gateway enabling seamless B2C transactions at scale.</p>
   <div class="page-hero-tags">
-    <span class="tag">Oracle Cloud Fusion</span>
-    <span class="tag">ETL Processes</span>
-    <span class="tag">Data Mapping</span>
+    <span class="tag">CRM Integration</span>
+    <span class="tag">Payment Gateway</span>
+    <span class="tag">Retail & eCommerce</span>
+    <span class="tag">API Analysis</span>
+    <span class="tag">Requirements Engineering</span>
     <span class="tag">UAT Management</span>
-    <span class="tag">GCP & Azure</span>
-    <span class="tag">Data Governance</span>
-    <span class="tag">Compliance & Security</span>
+    <span class="tag">PCI-DSS Compliance</span>
+    <span class="tag">Stakeholder Engagement</span>
+  </div>
+</div>
+
+<!-- METRICS STRIP -->
+<div class="metrics-strip">
+  <div class="metric">
+    <div class="metric-num">20%</div>
+    <div class="metric-label">Boost in operational efficiency</div>
+  </div>
+  <div class="metric">
+    <div class="metric-num">30%</div>
+    <div class="metric-label">Increase in customer retention</div>
+  </div>
+  <div class="metric">
+    <div class="metric-num">40%</div>
+    <div class="metric-label">Reduction in manual data entry</div>
   </div>
 </div>
 
 <!-- MAIN -->
 <main>
 
-  <!-- PROJECT 1: Data Migration -->
+  <!-- PROJECT 1: CRM Integration -->
   <div class="project-block">
     <div class="project-image-wrap">
-      <img src="images/fintech2.jpg" alt="Data Migration" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-      <div class="project-image-placeholder" style="display:none">🗄️</div>
+      <!-- Integration flow visual in place of image -->
+      <div class="integration-flow">
+        <div class="flow-node accent">Retail CRM Platform</div>
+        <div class="flow-arrow">↕</div>
+        <div class="flow-node">Customer Data Layer</div>
+        <div class="flow-arrow">↕</div>
+        <div class="flow-node">Marketing & Loyalty Engine</div>
+        <div class="flow-arrow">↕</div>
+        <div class="flow-node accent">Analytics & Reporting</div>
+      </div>
     </div>
     <div class="project-content">
-      <p class="project-number">Project 01 · ERP Migration</p>
-      <h2 class="project-title">Oracle Cloud Fusion Data Migration</h2>
+      <p class="project-number">Project 01 · CRM</p>
+      <h2 class="project-title">CRM Platform Integration & Optimisation</h2>
 
       <div class="accordion">
 
         <div class="accordion-item">
           <button class="accordion-btn" onclick="toggleAccordion(this)">
-            Requirements Gathering & Data Mapping
+            Requirements gathering & current state analysis
             <span class="accordion-chevron">▼</span>
           </button>
           <div class="accordion-body">
-            Collaborated closely with stakeholders to gather detailed migration requirements, analysing the legacy data structure and ensuring compatibility with Oracle's data model. Documented migration requirements and conducted thorough data mapping, aligning legacy fields with Oracle Cloud Fusion to establish clear data connections and ensure consistency throughout.
+            Collaborated with retail operations, marketing, and IT stakeholders to gather and document detailed CRM integration requirements. Conducted a thorough analysis of the existing customer data landscape, identifying fragmented data sources, duplicate records, and manual handoff points that were limiting campaign effectiveness and customer visibility.
           </div>
         </div>
 
         <div class="accordion-item">
           <button class="accordion-btn" onclick="toggleAccordion(this)">
-            ETL Process & Data Integrity
+            Data mapping & CRM configuration
             <span class="accordion-chevron">▼</span>
           </button>
           <div class="accordion-body">
-            Leveraged Extract, Transform, Load (ETL) tools to oversee the entire data extraction, transformation, and loading process, ensuring accuracy and integrity at every stage. Defined data validation and cleansing protocols to proactively address quality issues, maintaining a high standard of data integrity throughout the migration lifecycle.
+            Developed detailed data mapping documentation aligning legacy customer records with the new CRM data model. Defined field-level transformation rules, cleansing protocols, and deduplication logic to ensure a high-quality, unified customer profile was established from day one of go-live.
           </div>
         </div>
 
         <div class="accordion-item">
           <button class="accordion-btn" onclick="toggleAccordion(this)">
-            UAT & Issue Resolution
+            API integration & cross-system connectivity
             <span class="accordion-chevron">▼</span>
           </button>
           <div class="accordion-body">
-            Facilitated User Acceptance Testing (UAT) sessions to validate that migrated data met business requirements, tracking all issues through to resolution. Provided regular project updates to align milestones with stakeholder expectations and ensured all business needs were met before go-live.
+            Led API analysis and integration design to connect the CRM with POS systems, eCommerce platforms, and the loyalty programme engine. Documented API specifications and worked closely with developers to ensure reliable, real-time data flow between systems, eliminating silos and enabling a single customer view across all retail channels.
           </div>
         </div>
 
         <div class="accordion-item">
           <button class="accordion-btn" onclick="toggleAccordion(this)">
-            Compliance, Security & Governance
+            Stakeholder workshops & change management
             <span class="accordion-chevron">▼</span>
           </button>
           <div class="accordion-body">
-            Ensured the migration process adhered to strict security and governance standards, addressing compliance requirements to safeguard sensitive financial data. This was a critical workstream to guarantee integrity and regulatory alignment of all migrated information.
+            Facilitated cross-functional workshops with sales, marketing, customer service, and IT teams to align on CRM usage standards, data governance policies, and reporting requirements. Developed training materials and supported change management activities to drive adoption across the retail business.
           </div>
         </div>
 
         <div class="accordion-item">
           <button class="accordion-btn" onclick="toggleAccordion(this)">
-            Post-Migration Validation & Training
+            UAT & post-implementation monitoring
             <span class="accordion-chevron">▼</span>
           </button>
           <div class="accordion-body">
-            Conducted final validation to confirm data integrity and performed post-migration testing to ensure smooth system operations. Delivered training sessions for end users, equipping them to manage data effectively in Oracle Cloud Fusion, and created detailed documentation to support ongoing system management.
+            Coordinated UAT sessions with end users across store operations and the digital team to validate CRM workflows, data accuracy, and reporting dashboards. Tracked and resolved defects pre-launch and established post-implementation KPIs to monitor ongoing system performance and data quality.
           </div>
         </div>
 
       </div>
 
+      <div class="outcome-grid">
+        <div class="outcome-card">
+          <div class="outcome-card-num">+30%</div>
+          <div class="outcome-card-label">Improvement in customer retention through targeted campaigns</div>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-card-num">−40%</div>
+          <div class="outcome-card-label">Reduction in manual data entry and duplicate customer records</div>
+        </div>
+      </div>
+
+      <div class="tech-row">
+        <span class="tech-tag">Salesforce CRM</span>
+        <span class="tech-tag">REST APIs</span>
+        <span class="tech-tag">SQL</span>
+        <span class="tech-tag">Jira</span>
+        <span class="tech-tag">Confluence</span>
+        <span class="tech-tag">Power BI</span>
+      </div>
+
       <div class="impact-strip">
-        <span class="impact-badge">Seamless Oracle transition</span>
-        <span class="impact-badge">Enhanced data governance</span>
-        <span class="impact-badge">Improved system performance</span>
+        <span class="impact-badge">Unified customer view</span>
+        <span class="impact-badge">Real-time data sync</span>
+        <span class="impact-badge">Improved retention</span>
       </div>
     </div>
   </div>
 
-  <!-- PROJECT 2: Cloud Infrastructure -->
+  <!-- PROJECT 2: Payment Gateway -->
   <div class="project-block reverse">
     <div class="project-image-wrap">
-      <img src="images/Gateways-1.png" alt="Cloud Infrastructure" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-      <div class="project-image-placeholder" style="display:none">☁️</div>
+      <div class="integration-flow">
+        <div class="flow-node accent">Customer Checkout</div>
+        <div class="flow-arrow">↕</div>
+        <div class="flow-node">Payment Gateway Layer</div>
+        <div class="flow-arrow">↕</div>
+        <div class="flow-node">Fraud Detection Engine</div>
+        <div class="flow-arrow">↕</div>
+        <div class="flow-node accent">Bank / PSP Settlement</div>
+      </div>
     </div>
     <div class="project-content">
-      <p class="project-number">Project 02 · Cloud</p>
-      <h2 class="project-title">Cloud Infrastructure & Platform Strategy</h2>
+      <p class="project-number">Project 02 · Payments</p>
+      <h2 class="project-title">Payment Gateway System Integration for Retail</h2>
 
       <div class="accordion">
 
         <div class="accordion-item">
           <button class="accordion-btn" onclick="toggleAccordion(this)">
-            Platform overview
+            End-to-end integration management
             <span class="accordion-chevron">▼</span>
           </button>
           <div class="accordion-body">
-            Deep expertise across both Google Cloud Platform and Microsoft Azure, leveraging each platform's distinct capabilities to drive scalable and reliable cloud services for digital transformation initiatives — from data storage and analytics to AI and CI/CD automation.
+            Led the end-to-end integration of a multi-channel payment gateway solution across in-store POS terminals, the eCommerce platform, and the mobile app. Managed requirements, vendor relationships, and delivery timelines to ensure a cohesive payment experience across all retail touchpoints — in line with both business goals and PCI-DSS compliance standards.
           </div>
         </div>
 
         <div class="accordion-item">
           <button class="accordion-btn" onclick="toggleAccordion(this)">
-            Migration & integration approach
+            Requirements & functional specifications
             <span class="accordion-chevron">▼</span>
           </button>
           <div class="accordion-body">
-            Used both GCP and Azure to facilitate cloud migrations, data integration, and process automation — ensuring business needs were met with the right technical solutions. Guided stakeholders in selecting appropriate services and defined data architecture to align with requirements, ensuring cost-effective, scalable outcomes.
+            Gathered and documented business and technical requirements from finance, IT, and operations teams. Produced detailed functional specifications and use cases covering payment flows, refund and chargeback processes, multi-currency handling, and fraud detection logic — providing a clear, traceable reference for development and testing.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Fraud detection & PCI-DSS compliance
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Worked with the security and compliance team to define fraud detection rules and ensure the payment gateway met PCI-DSS Level 1 standards. Documented compliance requirements and coordinated with third-party auditors to validate controls, tokenisation protocols, and data encryption practices prior to go-live.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Third-party provider coordination
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Facilitated integration workshops with payment service providers (Stripe, Adyen) and acquiring banks to align on API specifications, settlement workflows, and reconciliation formats. Maintained a risk register and issue log throughout, ensuring all integration dependencies were tracked and resolved ahead of the phased rollout.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            UAT, performance testing & go-live
+            <span class="accordion-chevron">▼</span>
+          </button>
+          <div class="accordion-body">
+            Oversaw UAT and performance testing across all payment channels, simulating peak retail transaction volumes to validate system stability. Coordinated the phased rollout — starting with eCommerce, then in-store — with rollback procedures in place. Post-launch monitoring confirmed improved transaction success rates and a significant drop in failed payment incidents.
           </div>
         </div>
 
       </div>
 
-      <!-- Platform cards -->
-      <div class="platform-grid">
-        <div class="platform-card">
-          <div class="platform-card-header">
-            <div class="platform-icon gcp">☁️</div>
-            <div>
-              <div class="platform-card-name">Google Cloud</div>
-              <div class="platform-card-sub">GCP</div>
-            </div>
-          </div>
-          <ul class="platform-services">
-            <li>BigQuery — data warehousing</li>
-            <li>Cloud Pub/Sub — messaging</li>
-            <li>Cloud Functions — serverless</li>
-            <li>Real-time analytics & ML</li>
-          </ul>
+      <div class="outcome-grid">
+        <div class="outcome-card">
+          <div class="outcome-card-num">+18%</div>
+          <div class="outcome-card-label">Transaction success rate across all retail channels</div>
         </div>
-        <div class="platform-card">
-          <div class="platform-card-header">
-            <div class="platform-icon azure">🔷</div>
-            <div>
-              <div class="platform-card-name">Microsoft Azure</div>
-              <div class="platform-card-sub">Azure</div>
-            </div>
-          </div>
-          <ul class="platform-services">
-            <li>Azure SQL & Blob Storage</li>
-            <li>Data Factory — ETL pipelines</li>
-            <li>Azure DevOps — CI/CD</li>
-            <li>Azure ML & Security Center</li>
-          </ul>
+        <div class="outcome-card">
+          <div class="outcome-card-num">−35%</div>
+          <div class="outcome-card-label">Reduction in failed payments and checkout abandonment</div>
         </div>
+      </div>
+
+      <div class="tech-row">
+        <span class="tech-tag">Stripe</span>
+        <span class="tech-tag">Adyen</span>
+        <span class="tech-tag">PCI-DSS</span>
+        <span class="tech-tag">REST APIs</span>
+        <span class="tech-tag">Tokenisation</span>
+        <span class="tech-tag">Agile / SAFe</span>
       </div>
 
       <div class="impact-strip">
-        <span class="impact-badge">Scalable cloud adoption</span>
-        <span class="impact-badge">Improved analytics</span>
-        <span class="impact-badge">Regulatory compliance</span>
+        <span class="impact-badge">PCI-DSS compliant</span>
+        <span class="impact-badge">Multi-channel payments</span>
+        <span class="impact-badge">Fraud detection integrated</span>
       </div>
     </div>
   </div>
